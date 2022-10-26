@@ -11,6 +11,9 @@ public interface IAsistenciaService {
 
     Asistencia save(Asistencia asistencia);
 
+    Asistencia update(Asistencia asistencia);
+    public void delete(Long id);
+
     List<Asistencia> getAll();
 
     Asistencia getById(Long id);

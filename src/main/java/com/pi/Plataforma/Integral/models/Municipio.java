@@ -33,11 +33,6 @@ public class Municipio implements Serializable{
     public Municipio() {
     }
 
-    public Municipio(Long id, String nombre_municipio, Estado estado) {
-        this.id = id;
-        this.nombre_municipio = nombre_municipio;
-        this.estado = estado;
-    }
 
     public Long getId() {
         return id;
@@ -79,12 +74,4 @@ public class Municipio implements Serializable{
         this.colonia = colonia;
     }
 
-    @Override
-    public String toString() {
-        return "Municipio{" +
-                "id=" + id +
-                ", nombre_municipio='" + nombre_municipio + '\'' +
-                ", estado=" + estado +
-                '}';
-    }
 }

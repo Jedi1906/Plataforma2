@@ -6,11 +6,11 @@ import com.pi.Plataforma.Integral.models.Ussurioooo;
 import java.util.List;
 
 public interface IArchivoService {
+    Archivo save(Archivo archivo);
+    Archivo update(Archivo archivo);
+    public void delete(Long id);
+
     List<Archivo> getAll();
 
-    public boolean registrar(Archivo archivo);
-    public List<Archivo> obtener();
-    public boolean actualizar(Archivo archivo);
-    public boolean eliminar(Archivo archivo);
 
 }

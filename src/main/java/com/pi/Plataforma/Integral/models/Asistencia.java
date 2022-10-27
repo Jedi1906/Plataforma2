@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 @Entity
 @Table(name = "asistencia")
@@ -14,7 +15,7 @@ public class Asistencia implements Serializable{
     @Column(name = "id_asistencia")
     private Long id;
     @Column(name = "fecha")
-    private String fecha;
+    private Date fecha;
     @Column(name = "ubicacion",nullable = false)
     private String ubicacion;
     @Column(name = "validacion", length = 250)
@@ -38,15 +39,6 @@ public class Asistencia implements Serializable{
     public Asistencia() {
     }
 
-    public Asistencia(Long id, String fecha, String ubicacion, String validacion, Actividad actividad, Ussurioooo ussurioooo, Instructor instructor) {
-        this.id = id;
-        this.fecha = fecha;
-        this.ubicacion = ubicacion;
-        this.validacion = validacion;
-        this.actividad = actividad;
-        this.ussurioooo = ussurioooo;
-        this.instructor = instructor;
-    }
 
     public Long getId() {
         return id;
@@ -56,11 +48,11 @@ public class Asistencia implements Serializable{
         this.id = id;
     }
 
-    public String getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(String fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 
@@ -104,17 +96,4 @@ public class Asistencia implements Serializable{
         this.instructor = instructor;
     }
 
-
-    @Override
-    public String toString() {
-        return "Asistencia{" +
-                "id=" + id +
-                ", fecha='" + fecha + '\'' +
-                ", ubicacion='" + ubicacion + '\'' +
-                ", validacion='" + validacion + '\'' +
-                ", actividad=" + actividad +
-                ", ussurioooo=" + ussurioooo +
-                ", instructor=" + instructor +
-                '}';
-    }
 }

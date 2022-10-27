@@ -5,10 +5,7 @@ import com.pi.Plataforma.Integral.service.IActividadService;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,15 +14,11 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 public class ActividadController {
 
-    private final IActividadService actividadService;
-
-    public ActividadController(IActividadService actividadService) {
-        this.actividadService = actividadService;
-    }
+    private IActividadService actividadService;
 
     @GetMapping("/getAll")
-    public ResponseEntity<?> getAll(){
-        List<Actividad> response = actividadService.getAll();
-        return new ResponseEntity<>(response, HttpStatus.OK);
+    public ResponseEntity<?> nuevo(@RequestBody Actividad actividad){
+        actividadService.save(actividad);
+        return new ResponseEntity<>(true, HttpStatus.OK);
     }
 }

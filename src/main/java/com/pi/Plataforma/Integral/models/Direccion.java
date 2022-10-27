@@ -42,19 +42,6 @@ public class Direccion implements Serializable{
     public Direccion() {
     }
 
-
-    public Direccion(Long id, String nombre, String calle, String numero_ext, String numero_int, String cp, Colonia colonia, Municipio municipio, Estado estado) {
-        this.id = id;
-        this.nombre = nombre;
-        this.Calle = calle;
-        this.numero_ext = numero_ext;
-        this.numero_int = numero_int;
-        this.cp = cp;
-        this.colonia = colonia;
-        this.municipio = municipio;
-        this.estado = estado;
-    }
-
     public Long getId() {
         return id;
     }
@@ -128,18 +115,4 @@ public class Direccion implements Serializable{
     }
 
 
-    @Override
-    public String toString() {
-        return "Direccion{" +
-                "id=" + id +
-                ", nombre='" + nombre + '\'' +
-                ", Calle='" + Calle + '\'' +
-                ", numero_ext='" + numero_ext + '\'' +
-                ", numero_int='" + numero_int + '\'' +
-                ", cp='" + cp + '\'' +
-                ", colonia=" + colonia +
-                ", municipio=" + municipio +
-                ", estado=" + estado +
-                '}';
-    }
 }

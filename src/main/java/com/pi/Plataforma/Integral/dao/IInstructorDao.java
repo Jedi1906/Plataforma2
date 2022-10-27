@@ -11,14 +11,8 @@ import java.util.List;
 
 public interface IInstructorDao extends JpaRepository<Instructor, Long> {
 
-    @Query("select t from Estado t")
-    List<Estado> getEstado();
-
-    @Query("select t from Ussurioooo t")
-    List<Ussurioooo> getUssurioooo();
-
     @Modifying
-    @Query("update Instructor p set p.estado.id = ?2, p.ussurioooo.id = ?3 where p.id = ?1")
-    void updateAllRelations(Long id, Long id_estado, Long id_ussurioooo);
+    @Query("update instructor p set p.estado.id = ?2, p.usuario.id = ?3 where p.id = ?1")
+    void updateAllRelations(Long id, Long id_estado, Long id_usuario);
 
 }

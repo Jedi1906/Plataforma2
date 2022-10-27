@@ -33,12 +33,6 @@ public class Rol implements Serializable{
     public Rol() {
     }
 
-    public Rol(Long id, String rol_nombre, Set<Ussurioooo> ussurioooo) {
-        this.id = id;
-        this.rol_nombre = rol_nombre;
-        this.ussurioooo = ussurioooo;
-    }
-
     public Long getId() {
         return id;
     }
@@ -63,12 +57,4 @@ public class Rol implements Serializable{
         this.ussurioooo = ussurioooo;
     }
 
-    @Override
-    public String toString() {
-        return "Rol{" +
-                "id=" + id +
-                ", rol_nombre='" + rol_nombre + '\'' +
-                ", ussurioooo=" + ussurioooo +
-                '}';
-    }
 }

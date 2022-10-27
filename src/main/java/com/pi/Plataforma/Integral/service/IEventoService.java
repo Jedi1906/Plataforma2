@@ -7,15 +7,13 @@ import com.pi.Plataforma.Integral.models.Ussurioooo;
 import java.util.List;
 
 public interface IEventoService {
-    Evento findByAll();
 
-    Evento getById(Long id_evento);
+    Evento save(Evento evento);
+    Evento update(Evento evento);
+    public void delete(Long id);
 
-    List<Evento> getBrokers();
+    List<Evento> getAll();
 
-    public boolean registrar(Evento evento);
-    public List<Evento> obtener();
-    public boolean actualizar(Evento evento);
-    public boolean eliminar(Evento evento);
+
 
 }

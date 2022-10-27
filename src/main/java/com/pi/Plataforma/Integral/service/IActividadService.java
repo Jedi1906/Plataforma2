@@ -8,10 +8,12 @@ import java.util.List;
 
 public interface IActividadService {
 
+    Actividad save(Actividad actividad);
+    Actividad update(Actividad actividad);
+    public void delete(Long id);
+
+
+
     List<Actividad> getAll();
 
-    public boolean registrar(Actividad actividad);
-    public List<Actividad> obtener();
-    public boolean actualizar(Actividad actividad);
-    public boolean eliminar(Actividad actividad);
 }

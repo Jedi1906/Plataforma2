@@ -17,47 +17,8 @@ import java.util.List;
 @RequestMapping(value = "/estado")
 @CrossOrigin(origins = "*")
 public class EstadoController {
-    private final IEstadoService estadoService;
 
-    public EstadoController(IEstadoService estadoService) {
-        this.estadoService = estadoService;
-    }
-
-    @GetMapping("/getById/{id_estado}")
-    public ResponseEntity<?> getById(@PathVariable(name = "id_estado") Long id_estado) {
-        Estado estado = estadoService.getById(id_estado);
-        return new ResponseEntity<>(estado, HttpStatus.OK);
-    }
-
-    @GetMapping("/getEstado")
-    public ResponseEntity<?> getEstado() {
-        List<Estado> response = estadoService.getBrokers();
-        return new ResponseEntity<>(response, HttpStatus.OK);
-    }
-
-    public void registrar(Estado estado ) {
-        IEstadoService dao= new EstadoServiceImpl();
-        dao.registrar(estado);
-    }
-
-    //llama al service para actualizar un estado
-    public void actualizar(Estado estado) {
-        IEstadoService dao= new EstadoServiceImpl();
-        dao.actualizar(estado);
-    }
-
-    //llama al service para eliminar un estado
-    public void eliminar(Estado estado) {
-        IEstadoService dao= new  EstadoServiceImpl();
-        dao.eliminar(estado);
-    }
-
-    //llama al servie para obtener todos los estados
-    public void verEstado(){
-        List<Estado> estado = new ArrayList<Estado>();
-        IEstadoService dao= new EstadoServiceImpl();
-        estado=dao.obtener();
-    }
+    private  IEstadoService estadoService;
 
 
 }

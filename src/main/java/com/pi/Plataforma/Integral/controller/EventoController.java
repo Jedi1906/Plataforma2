@@ -1,5 +1,6 @@
 package com.pi.Plataforma.Integral.controller;
 
+import com.pi.Plataforma.Integral.models.Asistencia;
 import com.pi.Plataforma.Integral.models.Evento;
 import com.pi.Plataforma.Integral.models.Ussurioooo;
 import com.pi.Plataforma.Integral.service.IEventoService;
@@ -21,44 +22,13 @@ public class EventoController {
     @Autowired
     private IEventoService eventoService;
 
-
-
-
-
-    @GetMapping("/getById/{id_evento}")
-    public ResponseEntity<?> getById(@PathVariable(name = "id_evento") Long id_evento) {
-        Evento evento = eventoService.getById(id_evento);
-        return new ResponseEntity<>(evento, HttpStatus.OK);
-    }
-
-    @GetMapping("/getEvento")
-    public ResponseEntity<?> getEvento() {
-        List<Evento> response = eventoService.getBrokers();
-        return new ResponseEntity<>(response, HttpStatus.OK);
+    @PostMapping("/save")
+    public ResponseEntity<?> nuevo(@RequestBody Evento evento){
+        eventoService.save(evento);
+        return new ResponseEntity<>(true, HttpStatus.OK);
     }
 
 
-    public void registrar(Evento evento ) {
-        IEventoService dao= new EventoServiceImpl();
-        dao.registrar(evento);
-    }
 
-    //llama al service para actualizar un ussurioooo
-    public void actualizar(Evento evento) {
-        IEventoService dao= new EventoServiceImpl();
-        dao.actualizar(evento);
-    }
 
-    //llama al service para eliminar un ussurioooo
-    public void eliminar(Evento evento) {
-        IEventoService dao= new  EventoServiceImpl();
-        dao.eliminar(evento);
-    }
-
-    //llama al servie para obtener todos los usuarios
-    public void verEvento(){
-            List<Evento> evento = new ArrayList<Evento>();
-        IEventoService dao= new  EventoServiceImpl();
-        evento=dao.obtener();
-    }
 }

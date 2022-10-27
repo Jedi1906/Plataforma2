@@ -35,17 +35,6 @@ public class Evento implements Serializable{
     public Evento() {
     }
 
-    public Evento(Long id, String descripcion, Date fecha, String ubicacion, String url, String imagen, String instrucciones, Ussurioooo ussurioooo) {
-        this.id = id;
-        this.descripcion = descripcion;
-        this.fecha = fecha;
-        this.ubicacion = ubicacion;
-        this.url = url;
-        this.imagen = imagen;
-        this.instrucciones = instrucciones;
-        this.ussurioooo = ussurioooo;
-    }
-
     public Long getId() {
         return id;
     }
@@ -110,18 +99,4 @@ public class Evento implements Serializable{
         this.ussurioooo = ussurioooo;
     }
 
-
-    @Override
-    public String toString() {
-        return "Evento{" +
-                "id=" + id +
-                ", descripcion='" + descripcion + '\'' +
-                ", fecha=" + fecha +
-                ", ubicacion='" + ubicacion + '\'' +
-                ", url='" + url + '\'' +
-                ", imagen='" + imagen + '\'' +
-                ", instrucciones='" + instrucciones + '\'' +
-                ", ussurioooo=" + ussurioooo +
-                '}';
-    }
 }

@@ -45,17 +45,6 @@ public class Instructor implements Serializable{
     public Instructor() {
     }
 
-    public Instructor(Long id, String correoSec, String telefonoPart, Estado estado, Date fechaNac, Ussurioooo ussurioooo, String area, String especialidad) {
-        this.id = id;
-        this.correoSec = correoSec;
-        this.telefonoPart = telefonoPart;
-        this.estado = estado;
-        this.fechaNac = fechaNac;
-        this.ussurioooo = ussurioooo;
-        this.area = area;
-        this.especialidad = especialidad;
-    }
-
     public Long getId() {
         return id;
     }
@@ -128,17 +117,4 @@ public class Instructor implements Serializable{
         this.asistencia = asistencia;
     }
 
-    @Override
-    public String toString() {
-        return "Instructor{" +
-                "id=" + id +
-                ", correoSec='" + correoSec + '\'' +
-                ", telefonoPart='" + telefonoPart + '\'' +
-                ", estado=" + estado +
-                ", fechaNac=" + fechaNac +
-                ", ussurioooo=" + ussurioooo +
-                ", area='" + area + '\'' +
-                ", especialidad='" + especialidad + '\'' +
-                '}';
-    }
 }

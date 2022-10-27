@@ -35,17 +35,6 @@ public class Donacion implements Serializable{
     public Donacion() {
     }
 
-    public Donacion(Long id, String tipo_donacion, Date fecha_registro, String stock, Date fecha_act, boolean validado, boolean status, Ussurioooo ussurioooo) {
-        this.id = id;
-        this.tipo_donacion = tipo_donacion;
-        this.fecha_registro = fecha_registro;
-        this.stock = stock;
-        this.fecha_act = fecha_act;
-        this.validado = validado;
-        this.status = status;
-        this.ussurioooo = ussurioooo;
-    }
-
     public Long getId() {
         return id;
     }
@@ -111,17 +100,4 @@ public class Donacion implements Serializable{
     }
 
 
-    @Override
-    public String toString() {
-        return "Donacion{" +
-                "id=" + id +
-                ", tipo_donacion='" + tipo_donacion + '\'' +
-                ", fecha_registro=" + fecha_registro +
-                ", stock='" + stock + '\'' +
-                ", fecha_act=" + fecha_act +
-                ", validado=" + validado +
-                ", status=" + status +
-                ", ussurioooo=" + ussurioooo +
-                '}';
-    }
 }

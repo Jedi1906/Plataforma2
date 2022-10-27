@@ -38,11 +38,6 @@ public class Estado implements Serializable{
     public Estado() {
     }
 
-    public Estado(Long id, String nombre_estado) {
-        this.id = id;
-        this.nombre_estado = nombre_estado;
-    }
-
     public Long getId() {
         return id;
     }
@@ -91,11 +86,4 @@ public class Estado implements Serializable{
         this.direccion = direccion;
     }
 
-    @Override
-    public String toString() {
-        return "Estado{" +
-                "id=" + id +
-                ", nombre_estado='" + nombre_estado + '\'' +
-                '}';
-    }
 }

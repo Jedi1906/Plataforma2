@@ -1,5 +1,6 @@
 package com.pi.Plataforma.Integral.controller;
 
+import com.pi.Plataforma.Integral.models.Asistencia;
 import com.pi.Plataforma.Integral.models.Colonia;
 import com.pi.Plataforma.Integral.models.Ussurioooo;
 import com.pi.Plataforma.Integral.service.IColoniaService;
@@ -20,40 +21,11 @@ import java.util.List;
 public class ColoniaController {
     @Autowired
     private IColoniaService coloniaService;
-    @GetMapping("/getById/{id_colonia}")
-    public ResponseEntity<?> getById(@PathVariable(name = "id_colonia") Long id_colonia) {
-        Colonia colonia = coloniaService.getById(id_colonia);
-        return new ResponseEntity<>(colonia, HttpStatus.OK);
-    }
 
-    @GetMapping("/getColonia")
-    public ResponseEntity<?> getColonia() {
-        List<Colonia> response = coloniaService.getBrokers();
-        return new ResponseEntity<>(response, HttpStatus.OK);
-    }
-
-    public void registrar(Colonia colonia ) {
-        IColoniaService dao= new ColoniaServicelmpl();
-        dao.registrar(colonia);
-    }
-
-    //llama al service para actualizar un colonia
-    public void actualizar(Colonia colonia) {
-        IColoniaService dao= new ColoniaServicelmpl();
-        dao.actualizar(colonia);
-    }
-
-    //llama al service para eliminar un ussurioooo
-    public void eliminar(Colonia colonia) {
-        IColoniaService dao= new  ColoniaServicelmpl();
-        dao.eliminar(colonia);
-    }
-
-    //llama al servie para obtener todos los usuarios
-    public void verColonia(){
-        List<Colonia> colonia = new ArrayList<Colonia>();
-        IColoniaService dao= new ColoniaServicelmpl();
-        colonia=dao.obtener();
+    @PostMapping("/save")
+    public ResponseEntity<?> nuevo(@RequestBody Colonia colonia){
+        coloniaService.save(colonia);
+        return new ResponseEntity<>(true, HttpStatus.OK);
     }
 
 }

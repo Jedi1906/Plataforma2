@@ -7,12 +7,12 @@ import java.util.List;
 
 public interface IRolService {
 
+    Rol save(Rol rol);
+    Rol update(Rol rol);
+    public void delete(Long id);
+
     List<Rol> getAll();
 
-    public boolean registrar(Rol rol);
-    public List<Rol> obtener();
-    public boolean actualizar(Rol rol);
-    public boolean eliminar(Rol rol);
 
 
 

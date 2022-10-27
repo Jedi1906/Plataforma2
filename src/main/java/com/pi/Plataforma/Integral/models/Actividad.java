@@ -29,13 +29,6 @@ public class Actividad implements Serializable {
     public Actividad() {
     }
 
-    public Actividad(Long id, String nombre, String cupo, String horario) {
-        this.id = id;
-        this.nombre = nombre;
-        this.cupo = cupo;
-        this.horario = horario;
-    }
-
     public Long getId() {
         return id;
     }
@@ -68,7 +61,6 @@ public class Actividad implements Serializable {
         this.horario = horario;
     }
 
-
     public List<Asistencia> getAsistencia() {
         return asistencia;
     }
@@ -77,13 +69,4 @@ public class Actividad implements Serializable {
         this.asistencia = asistencia;
     }
 
-    @Override
-    public String toString() {
-        return "Actividad{" +
-                "id=" + id +
-                ", nombre='" + nombre + '\'' +
-                ", cupo='" + cupo + '\'' +
-                ", horario='" + horario + '\'' +
-                '}';
-    }
 }

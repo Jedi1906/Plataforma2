@@ -10,23 +10,15 @@ import java.util.List;
 public interface IAsistenciaService {
 
     Asistencia save(Asistencia asistencia);
-
     Asistencia update(Asistencia asistencia);
     public void delete(Long id);
 
+
     List<Asistencia> getAll();
 
-    Asistencia getById(Long id);
 
-    List<Ussurioooo> getUssurioooo();
 
-    List<Instructor> getInstructor();
 
-    List<Actividad> getActividad();
 
-    public boolean registrar(Asistencia asistencia);
-    public List<Asistencia> obtener();
-    public boolean actualizar(Asistencia asistencia);
-    public boolean eliminar(Asistencia asistencia);
 }
 

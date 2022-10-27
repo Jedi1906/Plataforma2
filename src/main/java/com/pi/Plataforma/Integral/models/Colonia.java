@@ -35,14 +35,6 @@ public class Colonia implements Serializable{
     public Colonia() {
     }
 
-    public Colonia(Long id, String nombre_colonia, String cp, String ciudad, String asentamiento, Municipio municipio) {
-        this.id = id;
-        this.nombre_colonia = nombre_colonia;
-        this.cp = cp;
-        this.ciudad = ciudad;
-        this.asentamiento = asentamiento;
-        this.municipio = municipio;
-    }
 
     public Long getId() {
         return id;
@@ -101,15 +93,6 @@ public class Colonia implements Serializable{
         this.direccion = direccion;
     }
 
-    @Override
-    public String toString() {
-        return "Colonia{" +
-                "id=" + id +
-                ", nombre_colonia='" + nombre_colonia + '\'' +
-                ", cp='" + cp + '\'' +
-                ", ciudad='" + ciudad + '\'' +
-                ", asentamiento='" + asentamiento + '\'' +
-                ", municipio=" + municipio +
-                '}';
-    }
+
+
 }

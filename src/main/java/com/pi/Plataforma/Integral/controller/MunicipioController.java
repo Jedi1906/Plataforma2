@@ -27,4 +27,9 @@ public class MunicipioController {
         return new ResponseEntity<>(true, HttpStatus.OK);
     }
 
+    @PostMapping("/delete")
+    public ResponseEntity<?> nuevo(@RequestBody Long id){
+        municipioService.delete(id);
+        return new ResponseEntity<>(true, HttpStatus.OK);
+    }
 }

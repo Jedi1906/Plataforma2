@@ -28,4 +28,10 @@ public class DonanteController {
         return new ResponseEntity<>(true, HttpStatus.OK);
     }
 
+    @PostMapping("/delete")
+    public ResponseEntity<?> nuevo(@RequestBody Long id){
+        donanteService.delete(id);
+        return new ResponseEntity<>(true, HttpStatus.OK);
+    }
+
 }

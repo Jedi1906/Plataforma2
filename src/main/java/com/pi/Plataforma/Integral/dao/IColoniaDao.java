@@ -12,4 +12,11 @@ public interface IColoniaDao extends JpaRepository <Colonia, Long> {
     @Query("update colonia p set p.municipio.id = ?2 where p.id = ?1")
     void updateAllRelations(Long id_colonia, Long id_municipio);
 
+    /* @Modifying
+    @Query("select p from Colonia p order by p.id desc")
+    List<Colonia> getAllPage(Long id);*/
+
+    @Modifying
+    @Query("delete from Colonia p where p.id = ?1")
+    void deleteColonia(Long id);
 }

@@ -39,6 +39,8 @@ public class RolServiceImpl implements IRolService {
     @Override
     public void delete(Long id) {
 
+        rolDao.deleteRol(id);
+
     }
 
     @Override

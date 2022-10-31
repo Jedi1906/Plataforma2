@@ -15,6 +15,13 @@ public interface IDonacionDao extends JpaRepository<Donacion, Long> {
     @Query("update donacion p set p.ussurioooo.id = ?2, where p.id_donacion = ?1")
     void updateAllRelations(Long id, Long id_usuario);
 
+    /* @Modifying
+    @Query("select p from Donacion p order by p.id desc")
+    List<Donacion> getAllPage(Long id);*/
+
+    @Modifying
+    @Query("delete from Donacion p where p.id = ?1")
+    void deleteDonacion(Long id);
 
 
 

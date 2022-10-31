@@ -11,5 +11,12 @@ public interface IArchivoDao extends JpaRepository <Archivo, Long> {
     @Query("update archivo p set p.ussurioooo.id = ?3 where p.id = ?1")
     void updateAllRelations(Long id_archivo, Long id_usuario);
 
+    /* @Modifying
+    @Query("select p from Archivo p order by p.id desc")
+    List<Archivo> getAllPage(Long id);*/
+
+    @Modifying
+    @Query("delete from Archivo p where p.id = ?1")
+    void deleteArchivo(Long id);
 
 }

@@ -42,6 +42,7 @@ public class MunicipioServicelmpl implements IMunicipioService {
 
     @Override
     public void delete(Long id) {
+        municipioDao.deleteMunicipio(id);
 
     }
 

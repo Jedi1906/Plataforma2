@@ -46,6 +46,7 @@ public class InstructorService implements IIntructorService {
 
     @Override
     public void delete(Long id) {
+        instructorDao.deleteInstructor(id);
 
     }
 

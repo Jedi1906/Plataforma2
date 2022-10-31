@@ -40,6 +40,7 @@ public class DireccionServiceImpl implements IDireccionService {
 
     @Override
     public void delete(Long id) {
+        direccionDao.deleteDireccion(id);
 
     }
 

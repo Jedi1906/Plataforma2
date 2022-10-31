@@ -27,6 +27,11 @@ public class EventoController {
         eventoService.save(evento);
         return new ResponseEntity<>(true, HttpStatus.OK);
     }
+    @PostMapping("/delete")
+    public ResponseEntity<?> nuevo(@RequestBody Long id){
+        eventoService.delete(id);
+        return new ResponseEntity<>(true, HttpStatus.OK);
+    }
 
 
 

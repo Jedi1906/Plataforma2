@@ -40,6 +40,7 @@ public class ActividadServiceImpl implements IActividadService {
     @Override
     public void delete(Long id) {
 
+        actividadDao.deleteActividad(id);
     }
 
     @Override

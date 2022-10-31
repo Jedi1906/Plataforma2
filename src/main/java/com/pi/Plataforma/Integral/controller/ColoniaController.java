@@ -28,4 +28,10 @@ public class ColoniaController {
         return new ResponseEntity<>(true, HttpStatus.OK);
     }
 
+    @PostMapping("/delete")
+    public ResponseEntity<?> nuevo(@RequestBody Long id){
+        coloniaService.delete(id);
+        return new ResponseEntity<>(true, HttpStatus.OK);
+    }
+
 }

@@ -15,4 +15,12 @@ public interface IInstructorDao extends JpaRepository<Instructor, Long> {
     @Query("update instructor p set p.estado.id = ?2, p.usuario.id = ?3 where p.id = ?1")
     void updateAllRelations(Long id, Long id_estado, Long id_usuario);
 
+
+    /* @Modifying
+    @Query("select p from Instructor p order by p.id desc")
+    List<Instructor> getAllPage(Long id);*/
+
+    @Modifying
+    @Query("delete from Instructor p where p.id = ?1")
+    void deleteInstructor(Long id);
 }

@@ -21,4 +21,10 @@ public class ActividadController {
         actividadService.save(actividad);
         return new ResponseEntity<>(true, HttpStatus.OK);
     }
+
+    @PostMapping("/delete")
+    public ResponseEntity<?> nuevo(@RequestBody Long id){
+        actividadService.delete(id);
+        return new ResponseEntity<>(true, HttpStatus.OK);
+    }
 }

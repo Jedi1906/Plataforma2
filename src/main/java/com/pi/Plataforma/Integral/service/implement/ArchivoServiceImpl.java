@@ -41,6 +41,7 @@ public class ArchivoServiceImpl implements IArchivoService {
     @Override
     public void delete(Long id) {
 
+        archivoDao.deleteArchivo(id);
     }
 
     @Override

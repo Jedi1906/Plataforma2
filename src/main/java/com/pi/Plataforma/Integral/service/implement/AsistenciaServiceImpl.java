@@ -1,23 +1,12 @@
 package com.pi.Plataforma.Integral.service.implement;
 
 import com.pi.Plataforma.Integral.dao.AsistenciaDao;
-import com.pi.Plataforma.Integral.dao.IActividadDao;
-import com.pi.Plataforma.Integral.dao.IInstructorDao;
-import com.pi.Plataforma.Integral.dao.IUssuriooooDao;
-import com.pi.Plataforma.Integral.models.Actividad;
 import com.pi.Plataforma.Integral.models.Asistencia;
-import com.pi.Plataforma.Integral.models.Instructor;
-import com.pi.Plataforma.Integral.models.Ussurioooo;
 import com.pi.Plataforma.Integral.service.IAsistenciaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -48,19 +37,15 @@ public class AsistenciaServiceImpl implements IAsistenciaService {
     }
     @Override
     public Asistencia update(Asistencia asistencia) {
-        return null;
-    }
-
+    return null;}
     @Override
-    public void delete(Long id) {}
+    public void delete(Long id){asistenciaDao.deleteAsistencia(id);}
 
     @Override
     public List<Asistencia> getAll() {
         return asistenciaDao.findAll();
     }
 
-
-
-
-
 }
+
+

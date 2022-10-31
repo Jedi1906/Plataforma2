@@ -38,6 +38,7 @@ public class EstadoServiceImpl implements IEstadoService {
 
     @Override
     public void delete(Long id) {
+        estadoDao.deleteEstado(id);
 
     }
 

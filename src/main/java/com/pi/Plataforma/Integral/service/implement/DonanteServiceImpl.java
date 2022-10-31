@@ -46,6 +46,7 @@ public class DonanteServiceImpl implements IDonanteService {
     @Override
     public void delete(Long id) {
 
+        donanteDao.deleteDonante(id);
     }
 
     @Override

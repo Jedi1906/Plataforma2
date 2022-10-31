@@ -29,4 +29,12 @@ public class ArchivoController {
         archivoService.save(archivo);
         return new ResponseEntity<>(true, HttpStatus.OK);
     }
+
+    @PostMapping("/delete")
+    public ResponseEntity<?> nuevo(@RequestBody Long id){
+        archivoService.delete(id);
+        return new ResponseEntity<>(true, HttpStatus.OK);
+    }
+
+
 }

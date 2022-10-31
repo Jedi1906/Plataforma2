@@ -43,6 +43,7 @@ public class EventoServiceImpl implements IEventoService {
 
     @Override
     public void delete(Long id) {
+        eventoDao.deleteEvento(id);
 
     }
 

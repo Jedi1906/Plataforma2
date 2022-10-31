@@ -48,6 +48,7 @@ public class DonacionServiceImpl implements IDonacionService {
 
     @Override
     public void delete(Long id) {
+        donacionDao.deleteDonacion(id);
 
     }
 

@@ -46,6 +46,7 @@ public class ColoniaServicelmpl implements IColoniaService {
     @Override
     public void delete(Long id) {
 
+        coloniaDao.deleteColonia(id);
     }
 
     @Override

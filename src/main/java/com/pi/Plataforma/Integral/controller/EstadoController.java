@@ -1,6 +1,7 @@
 package com.pi.Plataforma.Integral.controller;
 
 import com.pi.Plataforma.Integral.models.Estado;
+import com.pi.Plataforma.Integral.models.Rol;
 import com.pi.Plataforma.Integral.models.Ussurioooo;
 import com.pi.Plataforma.Integral.service.IEstadoService;
 import com.pi.Plataforma.Integral.service.IUssuriooooService;
@@ -19,6 +20,18 @@ import java.util.List;
 public class EstadoController {
 
     private  IEstadoService estadoService;
+
+    @PostMapping("/save")
+    public ResponseEntity<?> nuevo(@RequestBody Estado estado){
+        estadoService.save(estado);
+        return new ResponseEntity<>(true, HttpStatus.OK);
+    }
+
+    @PostMapping("/delete")
+    public ResponseEntity<?> nuevo(@RequestBody Long id){
+        estadoService.delete(id);
+        return new ResponseEntity<>(true, HttpStatus.OK);
+    }
 
 
 }

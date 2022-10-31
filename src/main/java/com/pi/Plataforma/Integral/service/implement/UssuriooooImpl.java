@@ -45,6 +45,7 @@ public class UssuriooooImpl implements IUssuriooooService {
     @Override
     public void delete(Long id) {
 
+        ussuriooooDao.deleteUsuario(id);
     }
 
     @Override

@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 public interface IArchivoDao extends JpaRepository <Archivo, Long> {
 
     @Modifying
-    @Query("update archivo p set p.ussurioooo.id = ?3 where p.id = ?1")
+    @Query("update Archivo p set p.ussurioooo.id = ?2 where p.id = ?1")
     void updateAllRelations(Long id_archivo, Long id_usuario);
 
     /* @Modifying

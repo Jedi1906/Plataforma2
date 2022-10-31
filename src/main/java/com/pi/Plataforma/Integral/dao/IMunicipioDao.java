@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 public interface IMunicipioDao extends JpaRepository<Municipio, Long> {
 
     @Modifying
-    @Query("update municipio p set p.estado.id = ?2, where p.id_municipio = ?1")
+    @Query("update Municipio p set p.estado.id = ?2 where p.id = ?1")
     void updateAllRelations(Long id, Long id_estado);
 
     /* @Modifying

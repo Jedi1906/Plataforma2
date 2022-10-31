@@ -13,7 +13,7 @@ public interface AsistenciaDao extends JpaRepository<Asistencia, Long> {
 
 
     @Modifying
-    @Query("update asistencia p set p.instructor.id = ?2, p.ussurioooo.id = ?3,p.actividad.id = ?4 where p.id = ?1")
+    @Query(value = "update asistencia p set p.instructor.id = ?2, p.ussurioooo.id = ?3,p.actividad.id = ?4 where p.id = ?1", nativeQuery = true)
     void updateAllRelations(Long id, Long id_instructor, Long id_usuario, Long id_actividad);
 
 

@@ -12,7 +12,7 @@ import java.util.List;
 public interface IDonanteDao extends JpaRepository<Donante, Long> {
 
     @Modifying
-    @Query("update donante p set p.estado.id = ?2, p.ussurioooo.id = ?3 where p.id = ?1")
+    @Query("update Donante p set p.estado.id = ?2, p.ussurioooo.id = ?3 where p.id = ?1")
     void updateAllRelations(Long id, Long id_estado, Long id_ussurioooo);
 
 

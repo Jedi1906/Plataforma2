@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 public interface IEventoDao extends JpaRepository<Evento,Long> {
 
     @Modifying
-    @Query("update evento p set p.ussurioooo.id = ?2 where p.id = ?1")
+    @Query("update Evento p set p.ussurioooo.id = ?2 where p.id = ?1")
     void updateAllRelations(Long id_asistencia, Long id_ussurioooo);
 
     /* @Modifying

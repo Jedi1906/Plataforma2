@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 public interface IColoniaDao extends JpaRepository <Colonia, Long> {
 
     @Modifying
-    @Query("update colonia p set p.municipio.id = ?2 where p.id = ?1")
+    @Query("update Colonia p set p.municipio.id = ?2 where p.id = ?1")
     void updateAllRelations(Long id_colonia, Long id_municipio);
 
     /* @Modifying

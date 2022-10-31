@@ -16,7 +16,7 @@ public class ActividadController {
 
     private IActividadService actividadService;
 
-    @GetMapping("/getAll")
+    @PostMapping("/nuevo")
     public ResponseEntity<?> nuevo(@RequestBody Actividad actividad){
         actividadService.save(actividad);
         return new ResponseEntity<>(true, HttpStatus.OK);

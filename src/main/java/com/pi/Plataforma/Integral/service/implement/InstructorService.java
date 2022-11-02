@@ -27,6 +27,8 @@ public class InstructorService implements IIntructorService {
     private IInstructorDao instructorDao;
 
 
+    public InstructorService(){}
+
     @Override
     public Instructor save(Instructor instructor) {
         Instructor instructor1=new Instructor();

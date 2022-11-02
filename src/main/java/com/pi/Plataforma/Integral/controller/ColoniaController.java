@@ -1,5 +1,6 @@
 package com.pi.Plataforma.Integral.controller;
 
+import com.pi.Plataforma.Integral.models.Actividad;
 import com.pi.Plataforma.Integral.models.Asistencia;
 import com.pi.Plataforma.Integral.models.Colonia;
 import com.pi.Plataforma.Integral.models.Ussurioooo;
@@ -26,6 +27,12 @@ public class ColoniaController {
     public ResponseEntity<?> nuevo(@RequestBody Colonia colonia){
         coloniaService.save(colonia);
         return new ResponseEntity<>(true, HttpStatus.OK);
+    }
+
+    @GetMapping("/getColonia")
+    public ResponseEntity<?> TraerColonia(){
+        List<Colonia> colonias = coloniaService.getAll();
+        return new ResponseEntity<>(colonias,HttpStatus.OK);
     }
 
     @PostMapping("/delete")

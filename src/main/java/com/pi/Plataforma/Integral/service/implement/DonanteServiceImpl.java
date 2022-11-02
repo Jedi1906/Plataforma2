@@ -25,6 +25,9 @@ public class DonanteServiceImpl implements IDonanteService {
     @Autowired
     private  IDonanteDao donanteDao;
 
+
+    public DonanteServiceImpl(){}
+
     @Override
     public Donante save(Donante donante) {
         Donante donante1=new Donante();

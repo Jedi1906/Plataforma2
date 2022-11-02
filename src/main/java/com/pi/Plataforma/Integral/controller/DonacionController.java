@@ -1,5 +1,6 @@
 package com.pi.Plataforma.Integral.controller;
 
+import com.pi.Plataforma.Integral.models.Actividad;
 import com.pi.Plataforma.Integral.models.Asistencia;
 import com.pi.Plataforma.Integral.models.Donacion;
 import com.pi.Plataforma.Integral.models.Ussurioooo;
@@ -24,6 +25,12 @@ public class DonacionController {
     public ResponseEntity<?> nuevo(@RequestBody Donacion donacion){
         donacionService.save(donacion);
         return new ResponseEntity<>(true, HttpStatus.OK);
+    }
+
+    @GetMapping("/getDonacion")
+    public ResponseEntity<?> TraerDonacion(){
+        List<Donacion> donacions = donacionService.getAll();
+        return new ResponseEntity<>(donacions,HttpStatus.OK);
     }
 
     @PostMapping("/delete")

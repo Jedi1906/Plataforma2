@@ -12,8 +12,6 @@ public interface IActividadService {
     Actividad update(Actividad actividad);
     public void delete(Long id);
 
-
-
     List<Actividad> getAll();
 
 }

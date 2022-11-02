@@ -20,6 +20,8 @@ public class UssuriooooImpl implements IUssuriooooService {
     @Autowired
     private IUssuriooooDao ussuriooooDao;
 
+    public UssuriooooImpl(){}
+
     @Override
     @Transactional
     public Ussurioooo save(Ussurioooo ussurioooo) {

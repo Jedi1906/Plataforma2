@@ -1,10 +1,13 @@
 package com.pi.Plataforma.Integral.controller;
 
+import com.pi.Plataforma.Integral.models.Actividad;
 import com.pi.Plataforma.Integral.models.Asistencia;
 import com.pi.Plataforma.Integral.service.IAsistenciaService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
@@ -18,6 +21,12 @@ public class AsistenciaController {
     public ResponseEntity<?> nuevo(@RequestBody Asistencia asistencia){
         asistenciaService.save(asistencia);
         return new ResponseEntity<>(true, HttpStatus.OK);
+    }
+
+    @GetMapping("/getAsistencia")
+    public ResponseEntity<?> TraerAsistencia(){
+        List<Asistencia> asistencias = asistenciaService.getAll();
+        return new ResponseEntity<>(asistencias,HttpStatus.OK);
     }
 
     @PostMapping("/delete")

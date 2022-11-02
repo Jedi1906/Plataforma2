@@ -1,5 +1,6 @@
 package com.pi.Plataforma.Integral.controller;
 
+import com.pi.Plataforma.Integral.models.Actividad;
 import com.pi.Plataforma.Integral.models.Asistencia;
 import com.pi.Plataforma.Integral.models.Direccion;
 import com.pi.Plataforma.Integral.models.Ussurioooo;
@@ -26,6 +27,11 @@ public class DireccionController {
         return new ResponseEntity<>(true, HttpStatus.OK);
     }
 
+    @GetMapping("/getDirreccion")
+    public ResponseEntity<?> TraerDireccion(){
+        List<Direccion> direccions = direccionService.getAll();
+        return new ResponseEntity<>(direccions,HttpStatus.OK);
+    }
     @PostMapping("/delete")
     public ResponseEntity<?> nuevo(@RequestBody Long id){
         direccionService.delete(id);

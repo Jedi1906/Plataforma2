@@ -4,6 +4,7 @@ import com.pi.Plataforma.Integral.dao.IRolDao;
 import com.pi.Plataforma.Integral.models.Rol;
 import com.pi.Plataforma.Integral.models.Ussurioooo;
 import com.pi.Plataforma.Integral.service.IRolService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,6 +18,7 @@ import java.util.List;
 @Service
 public class RolServiceImpl implements IRolService {
 
+    @Autowired
     private IRolDao rolDao;
 
 

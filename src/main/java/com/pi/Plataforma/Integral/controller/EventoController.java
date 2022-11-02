@@ -1,5 +1,6 @@
 package com.pi.Plataforma.Integral.controller;
 
+import com.pi.Plataforma.Integral.models.Actividad;
 import com.pi.Plataforma.Integral.models.Asistencia;
 import com.pi.Plataforma.Integral.models.Evento;
 import com.pi.Plataforma.Integral.models.Ussurioooo;
@@ -26,6 +27,12 @@ public class EventoController {
     public ResponseEntity<?> nuevo(@RequestBody Evento evento){
         eventoService.save(evento);
         return new ResponseEntity<>(true, HttpStatus.OK);
+    }
+
+    @GetMapping("/getEvento")
+    public ResponseEntity<?> TraerEvento(){
+        List<Evento> eventos = eventoService.getAll();
+        return new ResponseEntity<>(eventos,HttpStatus.OK);
     }
     @PostMapping("/delete")
     public ResponseEntity<?> nuevo(@RequestBody Long id){

@@ -1,5 +1,6 @@
 package com.pi.Plataforma.Integral.controller;
 
+import com.pi.Plataforma.Integral.models.Actividad;
 import com.pi.Plataforma.Integral.models.Estado;
 import com.pi.Plataforma.Integral.models.Rol;
 import com.pi.Plataforma.Integral.models.Ussurioooo;
@@ -25,6 +26,12 @@ public class EstadoController {
     public ResponseEntity<?> nuevo(@RequestBody Estado estado){
         estadoService.save(estado);
         return new ResponseEntity<>(true, HttpStatus.OK);
+    }
+
+    @GetMapping("/getEstado")
+    public ResponseEntity<?> TraerEstado(){
+        List<Estado> estados = estadoService.getAll();
+        return new ResponseEntity<>(estados,HttpStatus.OK);
     }
 
     @PostMapping("/delete")

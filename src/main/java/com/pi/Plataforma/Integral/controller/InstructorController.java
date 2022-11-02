@@ -1,6 +1,7 @@
 package com.pi.Plataforma.Integral.controller;
 
 
+import com.pi.Plataforma.Integral.models.Actividad;
 import com.pi.Plataforma.Integral.models.Estado;
 import com.pi.Plataforma.Integral.models.Instructor;
 import com.pi.Plataforma.Integral.models.Ussurioooo;
@@ -26,6 +27,12 @@ public class InstructorController {
     public ResponseEntity<?> nuevo(@RequestBody Instructor instructor){
         intructorService.save(instructor);
         return new ResponseEntity<>(true, HttpStatus.OK);
+    }
+
+    @GetMapping("/getInstructor")
+    public ResponseEntity<?> TraerInstructor(){
+        List<Instructor> instructors = intructorService.getAll();
+        return new ResponseEntity<>(instructors,HttpStatus.OK);
     }
 
     @PostMapping("/delete")

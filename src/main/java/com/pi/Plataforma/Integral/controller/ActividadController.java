@@ -22,6 +22,12 @@ public class ActividadController {
         return new ResponseEntity<>(true, HttpStatus.OK);
     }
 
+    @GetMapping("/getActividad")
+    public ResponseEntity<?> TraerAtividad(){
+        List<Actividad> actividads = actividadService.getAll();
+        return new ResponseEntity<>(true,HttpStatus.OK);
+    }
+
     @PostMapping("/delete")
     public ResponseEntity<?> nuevo(@RequestBody Long id){
         actividadService.delete(id);

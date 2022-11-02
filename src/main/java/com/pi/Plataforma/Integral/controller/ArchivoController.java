@@ -1,6 +1,7 @@
 package com.pi.Plataforma.Integral.controller;
 
 
+import com.pi.Plataforma.Integral.models.Actividad;
 import com.pi.Plataforma.Integral.models.Archivo;
 
 import com.pi.Plataforma.Integral.models.Asistencia;
@@ -28,6 +29,12 @@ public class ArchivoController {
     public ResponseEntity<?> nuevo(@RequestBody Archivo archivo){
         archivoService.save(archivo);
         return new ResponseEntity<>(true, HttpStatus.OK);
+    }
+
+    @GetMapping("/getArchivo")
+    public ResponseEntity<?> TraerArchivo(){
+        List<Archivo>  archivos= archivoService.getAll();
+        return new ResponseEntity<>(archivos,HttpStatus.OK);
     }
 
     @PostMapping("/delete")

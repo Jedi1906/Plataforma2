@@ -1,6 +1,7 @@
 package com.pi.Plataforma.Integral.controller;
 
 
+import com.pi.Plataforma.Integral.models.Actividad;
 import com.pi.Plataforma.Integral.models.Asistencia;
 import com.pi.Plataforma.Integral.models.Municipio;
 import com.pi.Plataforma.Integral.models.Ussurioooo;
@@ -25,6 +26,13 @@ public class MunicipioController {
     public ResponseEntity<?> nuevo(@RequestBody Municipio municipio){
         municipioService.save(municipio);
         return new ResponseEntity<>(true, HttpStatus.OK);
+    }
+
+
+    @GetMapping("/getMunicipio")
+    public ResponseEntity<?> TraerMunicipio(){
+        List<Municipio> municipios = municipioService.getAll();
+        return new ResponseEntity<>(municipios,HttpStatus.OK);
     }
 
     @PostMapping("/delete")

@@ -1,6 +1,7 @@
 package com.pi.Plataforma.Integral.controller;
 
 
+import com.pi.Plataforma.Integral.models.Actividad;
 import com.pi.Plataforma.Integral.models.Donante;
 import com.pi.Plataforma.Integral.models.Estado;
 import com.pi.Plataforma.Integral.models.Ussurioooo;
@@ -26,6 +27,13 @@ public class DonanteController {
     public ResponseEntity<?> nuevo(@RequestBody Donante donante){
         donanteService.save(donante);
         return new ResponseEntity<>(true, HttpStatus.OK);
+    }
+
+
+    @GetMapping("/getDonante")
+    public ResponseEntity<?> TraerDonante(){
+        List<Donante> donantes = donanteService.getAll();
+        return new ResponseEntity<>(donantes,HttpStatus.OK);
     }
 
     @PostMapping("/delete")

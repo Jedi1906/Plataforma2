@@ -1,5 +1,6 @@
 package com.pi.Plataforma.Integral.controller;
 
+import com.pi.Plataforma.Integral.models.Actividad;
 import com.pi.Plataforma.Integral.service.IUssuriooooService;
 import com.pi.Plataforma.Integral.models.Ussurioooo;
 import com.pi.Plataforma.Integral.service.implement.UssuriooooImpl;
@@ -22,27 +23,16 @@ public class UssuriooooController {
         this.ussuriooooService = ussuriooooService;
     }
 
-    /*@GetMapping("/getById/{id_usuario}")
-    public ResponseEntity<?> getById(@PathVariable(name = "id_usuario") Long id){
-        Ussurioooo ussurioooo = ussuriooooService.getById(id);
-        return new ResponseEntity<>(ussurioooo, HttpStatus.OK);
-    }
-    @GetMapping("/getUsuario")
-    public ResponseEntity<?> getUsuario(){
-        List<Ussurioooo> response = ussuriooooService.getAll();
-        return new ResponseEntity<>(response, HttpStatus.OK);
-    }
-
-    @PostMapping("/updatepassword")
-    public ResponseEntity<?> updatepassword(@RequestBody Ussurioooo ussurioooo){
-        ussuriooooService.updatepassword(ussurioooo);
-        return new ResponseEntity<>(true, HttpStatus.OK);
-    }
-    */
     @PostMapping("/saveUsuario")
     public ResponseEntity<?> saveUsuario( @RequestBody Ussurioooo ussurioooo){
         ussuriooooService.save(ussurioooo);
         return new ResponseEntity<>(true,HttpStatus.OK);
+    }
+
+    @GetMapping("/getUssurioooo")
+    public ResponseEntity<?> TraerAtividad(){
+        List<Ussurioooo> ussurioooos = ussuriooooService.getAll();
+        return new ResponseEntity<>(ussurioooos,HttpStatus.OK);
     }
 
     @PostMapping("/delete")

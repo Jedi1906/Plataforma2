@@ -64,10 +64,9 @@ public class UssuriooooImpl implements IUssuriooooService {
     }
 
     @Override
-    @Transactional
-    public void updatepassword(Ussurioooo ussurioooo) {
-    /*String passwordBcrypt = passwordEncoder.encode(ussurioooo.getContraseña());
-    ussuriooooDao.updatePassword(ussurioooo.getId(), passwordBcrypt);*/
+    public Ussurioooo findByEmail(String correo) {
+        return null;
     }
+
 
 }

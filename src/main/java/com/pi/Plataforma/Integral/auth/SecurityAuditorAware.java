@@ -26,4 +26,5 @@ public class SecurityAuditorAware implements AuditorAware<Long> {
         Ussurioooo ussurioooo = ussuriooooService.findByEmail(authentication.getName());
         return  Optional.of(ussurioooo.getId());
     }
+
 }

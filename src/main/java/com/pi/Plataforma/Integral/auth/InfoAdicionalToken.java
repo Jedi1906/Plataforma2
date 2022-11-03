@@ -38,4 +38,5 @@ public class InfoAdicionalToken implements TokenEnhancer {
         ((DefaultOAuth2AccessToken) oAuth2AccessToken).setAdditionalInformation(info);
         return oAuth2AccessToken;
     }
+
 }

@@ -45,4 +45,5 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and().csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }
+
 }

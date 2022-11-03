@@ -23,7 +23,8 @@ public interface IUssuriooooService {
     Fin métodos*/
 
     /*Metodos de contraseña*/
-    void updatepassword(Ussurioooo ussurioooo);
+
+    Ussurioooo findByEmail(String correo);
 
 
 

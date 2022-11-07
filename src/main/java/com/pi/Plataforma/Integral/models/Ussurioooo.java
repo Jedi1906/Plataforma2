@@ -27,7 +27,7 @@ public class Ussurioooo implements Serializable{
     @Column(name ="contraseña",nullable = false)
     private String contraseña;
     @Column(name ="staus", nullable = false)
-    private String status;
+    private Integer status;
     @Column(name ="telefono")
     private String telefono;
     @Column(name ="fecha_actual", nullable = false)
@@ -117,11 +117,11 @@ public class Ussurioooo implements Serializable{
         this.contraseña = contraseña;
     }
 
-    public String getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 

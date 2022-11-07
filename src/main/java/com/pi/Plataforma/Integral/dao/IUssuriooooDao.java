@@ -15,6 +15,8 @@ public interface IUssuriooooDao extends JpaRepository<Ussurioooo, Long> {
     void updateAllRelations(Long id, String nombre, String apellido, String fecha_creaci, String correo, String contraseña, String status, String telefono, Date fecha_actual, String genero);
 
 
+    Ussurioooo findByCorreo(String correo);
+
    /* @Modifying
     @Query("select p from Ussurioooo p order by p.id desc")
     List<Ussurioooo> getAllPage(Long id);*/

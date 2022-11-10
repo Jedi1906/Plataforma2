@@ -25,7 +25,7 @@ public class ActividadController {
     @GetMapping("/getActividad")
     public ResponseEntity<?> TraerAtividad(){
         List<Actividad> actividads = actividadService.getAll();
-        return new ResponseEntity<>(true,HttpStatus.OK);
+        return new ResponseEntity<>(actividads,HttpStatus.OK);
     }
 
     @PostMapping("/delete")

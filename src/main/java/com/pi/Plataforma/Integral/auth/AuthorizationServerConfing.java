@@ -41,7 +41,7 @@ public class AuthorizationServerConfing extends AuthorizationServerConfigurerAda
 
     @Autowired
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        clients.inMemory().withClient("boutiqueApp")
+        clients.inMemory().withClient("angular-loto3")
                 .secret(passwordEncoder.encode("dTJK;zdXy2@bL*H!"))
                 .scopes("read", "write")
                 .authorizedGrantTypes("password", "refresh_token")

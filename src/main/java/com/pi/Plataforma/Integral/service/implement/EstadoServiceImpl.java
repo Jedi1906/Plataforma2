@@ -44,6 +44,6 @@ public class EstadoServiceImpl implements IEstadoService {
 
     @Override
     public List<Estado> getAll() {
-        return null;
+        return estadoDao.findAll();
     }
 }

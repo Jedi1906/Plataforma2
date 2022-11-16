@@ -8,6 +8,7 @@ import com.pi.Plataforma.Integral.service.IEstadoService;
 import com.pi.Plataforma.Integral.service.IUssuriooooService;
 import com.pi.Plataforma.Integral.service.implement.EstadoServiceImpl;
 import com.pi.Plataforma.Integral.service.implement.UssuriooooImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +20,7 @@ import java.util.List;
 @RequestMapping(value = "/estado")
 @CrossOrigin(origins = "*")
 public class EstadoController {
-
+    @Autowired
     private  IEstadoService estadoService;
 
     @PostMapping("/save")

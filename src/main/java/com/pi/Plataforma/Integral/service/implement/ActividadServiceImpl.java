@@ -44,6 +44,13 @@ public class ActividadServiceImpl implements IActividadService {
     }
 
     @Override
+    public List<Actividad> get() {
+
+        System.out.println(actividadDao.findAll());
+        return actividadDao.findAll();
+    }
+
+    @Override
     public List<Actividad> getAll() {
         return actividadDao.findAll();
     }

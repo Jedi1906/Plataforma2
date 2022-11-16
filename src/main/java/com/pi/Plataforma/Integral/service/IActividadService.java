@@ -11,6 +11,7 @@ public interface IActividadService {
     Actividad save(Actividad actividad);
     Actividad update(Actividad actividad);
     public void delete(Long id);
+    List<Actividad> get();
 
     List<Actividad> getAll();
 

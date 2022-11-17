@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-PlataformaIntegralApplication<Plataforma-Integral>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.pi.Plataforma.Integral.PlataformaIntegralApplication",
+            "projectName": "Plataforma-Integral",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

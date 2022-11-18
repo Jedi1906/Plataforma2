@@ -1,5 +1,7 @@
 package com.pi.Plataforma.Integral.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -18,18 +20,22 @@ public class Estado implements Serializable{
 
     @OneToMany(mappedBy = "estado",
             cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private List<Instructor> instructor;
 
     @OneToMany(mappedBy = "estado",
             cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private List<Donante> donante;
 
     @OneToMany(mappedBy = "estado",
             cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private List<Municipio> municipio;
 
     @OneToMany(mappedBy = "estado",
             cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private List<Direccion> direccion;
 
 

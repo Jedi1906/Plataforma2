@@ -34,7 +34,8 @@ public class Instructor implements Serializable{
     private Ussurioooo ussurioooo;
 
     @OneToMany(mappedBy = "instructor",
-            cascade = CascadeType.ALL, orphanRemoval = true)
+            cascade = CascadeType.ALL)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private List<Asistencia> asistencia;
 
     @Column (name = "area", length = 100, nullable = false)

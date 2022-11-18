@@ -21,7 +21,7 @@ public class Asistencia implements Serializable{
     @Column(name = "validacion", length = 250)
     private String validacion;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn (name = "id_actividad", updatable = false)
     @JsonIgnoreProperties({"hibernataLazyIntializer", "handler"})
     private Actividad actividad;

@@ -24,12 +24,9 @@ public class ActividadServiceImpl implements IActividadService {
     public ActividadServiceImpl(){};
 
     @Override
+    @Transactional
     public Actividad save(Actividad actividad) {
-        Actividad actividad1=new Actividad();
-        actividad1.setNombre(actividad.getNombre());
-        actividad1.setCupo(actividad.getCupo());
-        actividad1.setHorario(actividad.getHorario());
-        return actividadDao.getById(actividad1.getId());
+        return actividadDao.save(actividad);
     }
 
     @Override

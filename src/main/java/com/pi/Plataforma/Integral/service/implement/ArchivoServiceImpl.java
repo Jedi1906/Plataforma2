@@ -2,6 +2,7 @@ package com.pi.Plataforma.Integral.service.implement;
 
 
 import com.pi.Plataforma.Integral.dao.IArchivoDao;
+import com.pi.Plataforma.Integral.dao.IUssuriooooDao;
 import com.pi.Plataforma.Integral.models.Archivo;
 import com.pi.Plataforma.Integral.models.Ussurioooo;
 import com.pi.Plataforma.Integral.service.IArchivoService;
@@ -16,18 +17,24 @@ public class ArchivoServiceImpl implements IArchivoService {
     @Autowired
     private  IArchivoDao archivoDao;
 
+    @Autowired
+    private IUssuriooooDao iUsuario;
     public ArchivoServiceImpl(){}
     @Override
     @Transactional
     public Archivo save(Archivo archivo) {
         Archivo archivo1=new Archivo();
-        archivo1.setId(archivo.getId());
         archivo1.setNombre_archivo(archivo.getNombre_archivo());
         archivo1.setRuta(archivo.getRuta());
-        archivoDao.updateAllRelations(
-                archivo.getId(),archivo.getUssurioooo().getId()
-        );
-        return archivoDao.getById(archivo.getId());
+        archivo1 = archivoDao.save(archivo1);
+        try{
+            archivoDao.updateAllRelations(
+                    archivo1.getId(),archivo.getUssurioooo().getId()
+            );
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        return archivoDao.getById(archivo1.getId());
     }
 
     @Override

@@ -15,10 +15,11 @@ public class Archivo implements Serializable{
         private Long id;
         @Column(name = "nombre_archivo", length = 100, nullable = false)
         private String nombre_archivo;
-        @Column(name = "ruta", length = 100, nullable = false)
+        @Column(name = "ruta", length = 100)
         private String ruta;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @JoinColumn (name = "id_usuario")
     private Ussurioooo ussurioooo;
 

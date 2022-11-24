@@ -10,8 +10,8 @@ import java.util.List;
 
 public interface IArchivoDao extends JpaRepository <Archivo,Long> {
 
-    @Modifying()
-    @Query(value = "update archivo p set t.ussurioooo.id =?2, p.nombre_archivo =?3, p.ruta =?4 where p.id = ?1", nativeQuery = true)
+    @Modifying(clearAutomatically = true)
+    @Query(value = "update Archivo p set p.ussurioooo.id =?2 where p.id = ?1")
     void updateAllRelations(Long id, Long id_usuario);
 
     @Modifying

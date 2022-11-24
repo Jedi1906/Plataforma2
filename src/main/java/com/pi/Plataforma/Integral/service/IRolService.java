@@ -10,6 +10,7 @@ public interface IRolService {
     Rol save(Rol rol);
     Rol update(Rol rol);
     public void delete(Long id);
+    List<Rol> get();
 
     List<Rol> getAll();
 

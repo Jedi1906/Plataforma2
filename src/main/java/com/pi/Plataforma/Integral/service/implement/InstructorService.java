@@ -1,6 +1,5 @@
 package com.pi.Plataforma.Integral.service.implement;
 
-import com.pi.Plataforma.Integral.dao.IEstadoDao;
 import com.pi.Plataforma.Integral.dao.IInstructorDao;
 import com.pi.Plataforma.Integral.dao.IUssuriooooDao;
 import com.pi.Plataforma.Integral.models.Donante;

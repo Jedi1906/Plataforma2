@@ -2,7 +2,6 @@ package com.pi.Plataforma.Integral.controller;
 
 import com.pi.Plataforma.Integral.models.Actividad;
 import com.pi.Plataforma.Integral.service.IActividadService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,32 +1,31 @@
 package com.pi.Plataforma.Integral.controller;
 
-import com.pi.Plataforma.Integral.models.Actividad;
 import com.pi.Plataforma.Integral.service.IUssuriooooService;
 import com.pi.Plataforma.Integral.models.Ussurioooo;
-import com.pi.Plataforma.Integral.service.implement.UssuriooooImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
-
+@RestController
+@RequestMapping("/ussurioooo")
+@CrossOrigin(origins = "*")
 public class UssuriooooController {
+    @Autowired
+    private IUssuriooooService ussuriooooService;
 
-    private final IUssuriooooService ussuriooooService;
-
-    public UssuriooooController(IUssuriooooService ussuriooooService) {
-        this.ussuriooooService = ussuriooooService;
-    }
-
-    @PostMapping("/saveUsuario")
-    public ResponseEntity<?> saveUsuario( @RequestBody Ussurioooo ussurioooo){
+    @PostMapping("/nuevo")
+    public ResponseEntity<?> nuevo( @RequestBody Ussurioooo ussurioooo){
         ussuriooooService.save(ussurioooo);
         return new ResponseEntity<>(true,HttpStatus.OK);
+    }
+
+    @GetMapping("/getUssurioooos")
+    public ResponseEntity<?> TraerUsuarios(){
+        List<Ussurioooo> ussurioooos = ussuriooooService.get();
+        return new ResponseEntity<>(ussurioooos,HttpStatus.OK);
     }
 
     @GetMapping("/getUssurioooo")

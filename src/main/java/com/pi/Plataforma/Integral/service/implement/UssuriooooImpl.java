@@ -25,18 +25,7 @@ public class UssuriooooImpl implements IUssuriooooService {
     @Override
     @Transactional
     public Ussurioooo save(Ussurioooo ussurioooo) {
-        Ussurioooo ussurioooo1=new Ussurioooo();
-        ussurioooo1.setNombre(ussurioooo.getNombre());
-        ussurioooo1.setApellido(ussurioooo.getApellido());
-        ussurioooo1.setFecha_creaci(ussurioooo.getFecha_creaci());
-        ussurioooo1.setCorreo(ussurioooo.getCorreo());
-        ussurioooo1.setContraseña(ussurioooo.getContraseña());
-        ussurioooo1.setStatus(ussurioooo.getStatus());
-        ussurioooo1.setTelefono(ussurioooo.getTelefono());
-        ussurioooo1.setFecha_actual(ussurioooo.getFecha_actual());
-        ussurioooo1.setGenero(ussurioooo.getGenero());
-
-        return ussuriooooDao.getById(ussurioooo1.getId());
+        return ussuriooooDao.save(ussurioooo);
     }
 
     @Override
@@ -51,16 +40,19 @@ public class UssuriooooImpl implements IUssuriooooService {
     }
 
     @Override
+    public List<Ussurioooo> get() {
+        System.out.println(ussuriooooDao.findAll());
+        return ussuriooooDao.findAll();
+    }
+
+    @Override
     public List<Ussurioooo> getAll() {
         return ussuriooooDao.findAll();
     }
 
-
-
     @Override
     public Ussurioooo getById(Long idussurioooo) {
         return null;
-        //return ussuriooooDao.getById(idussurioooo);
     }
 
     @Override

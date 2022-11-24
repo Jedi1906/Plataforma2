@@ -9,6 +9,7 @@ import com.pi.Plataforma.Integral.service.IIntructorService;
 import com.pi.Plataforma.Integral.service.IUssuriooooService;
 import com.pi.Plataforma.Integral.service.implement.InstructorService;
 import com.pi.Plataforma.Integral.service.implement.UssuriooooImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +22,7 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 public class InstructorController {
 
+    @Autowired
     private IIntructorService intructorService;
 
     @PostMapping("/save")

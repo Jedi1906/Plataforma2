@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/colonia")
+@RequestMapping("/colonia")
 @CrossOrigin(origins = "*")
 public class ColoniaController {
     @Autowired

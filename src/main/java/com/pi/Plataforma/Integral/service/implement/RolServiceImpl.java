@@ -26,11 +26,7 @@ public class RolServiceImpl implements IRolService {
 
     @Override
     @Transactional
-    public Rol save(Rol rol) {
-        Rol rol1 = new Rol();
-        rol1.setRol_nombre(rol.getRol_nombre());
-
-        return rolDao.getById(rol1.getId());
+    public Rol save(Rol rol) {return rolDao.save(rol);
     }
 
     @Override
@@ -43,6 +39,12 @@ public class RolServiceImpl implements IRolService {
 
         rolDao.deleteRol(id);
 
+    }
+
+    @Override
+    public List<Rol> get() {
+        System.out.println(rolDao.findAll());
+        return rolDao.findAll();
     }
 
     @Override

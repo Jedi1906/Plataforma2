@@ -1,12 +1,10 @@
 package com.pi.Plataforma.Integral.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "archivo_carga")
+@Table(name = "archivo")
 public class Archivo implements Serializable{
 
         @Id
@@ -18,9 +16,8 @@ public class Archivo implements Serializable{
         @Column(name = "ruta", length = 100, nullable = false)
         private String ruta;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn (name = "id_usuario", updatable = false)
-    @JsonIgnoreProperties({"hibernataLazyIntializer", "handler"})
+    @ManyToOne()
+    @JoinColumn (name = "id_usuario")
     private Ussurioooo ussurioooo;
 
     public Archivo() {
@@ -57,5 +54,4 @@ public class Archivo implements Serializable{
     public void setUssurioooo(Ussurioooo ussurioooo) {
         this.ussurioooo = ussurioooo;
     }
-
 }

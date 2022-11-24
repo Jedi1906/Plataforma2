@@ -8,7 +8,6 @@ import java.util.List;
 
 @Entity
 @Table(name = "estado")
-
 public class Estado implements Serializable{
 
     @Id
@@ -19,22 +18,22 @@ public class Estado implements Serializable{
     private String nombre_estado;
 
     @OneToMany(mappedBy = "estado",
-            cascade = CascadeType.ALL, orphanRemoval = true)
+            cascade = CascadeType.ALL)
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private List<Instructor> instructor;
 
     @OneToMany(mappedBy = "estado",
-            cascade = CascadeType.ALL, orphanRemoval = true)
+            cascade = CascadeType.ALL )
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private List<Donante> donante;
 
     @OneToMany(mappedBy = "estado",
-            cascade = CascadeType.ALL, orphanRemoval = true)
+            cascade = CascadeType.ALL )
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private List<Municipio> municipio;
 
     @OneToMany(mappedBy = "estado",
-            cascade = CascadeType.ALL, orphanRemoval = true)
+            cascade = CascadeType.ALL)
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private List<Direccion> direccion;
 

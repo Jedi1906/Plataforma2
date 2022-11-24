@@ -8,6 +8,7 @@ import com.pi.Plataforma.Integral.service.IDireccionService;
 import com.pi.Plataforma.Integral.service.IUssuriooooService;
 import com.pi.Plataforma.Integral.service.implement.DireccionServiceImpl;
 import com.pi.Plataforma.Integral.service.implement.UssuriooooImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,9 +17,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/direccion")
+@RequestMapping("/direccion")
 @CrossOrigin(origins = "*")
 public class DireccionController {
+   @Autowired
    private IDireccionService direccionService;
 
     @PostMapping("/save")

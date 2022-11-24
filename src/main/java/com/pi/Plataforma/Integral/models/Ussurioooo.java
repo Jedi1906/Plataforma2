@@ -46,8 +46,8 @@ public class Ussurioooo implements Serializable{
     private List<Asistencia> asistencia;
 
     @OneToMany(mappedBy = "ussurioooo",
-            cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Archivo> archivo_carga;
+            cascade = CascadeType.ALL)
+    private List<Archivo> archivos;
 
 
 
@@ -70,7 +70,6 @@ public class Ussurioooo implements Serializable{
 
     public Ussurioooo() {
     }
-
 
     public Long getId() {
         return id;
@@ -168,14 +167,13 @@ public class Ussurioooo implements Serializable{
         this.asistencia = asistencia;
     }
 
-    public List<Archivo> getArchivo_carga() {
-        return archivo_carga;
+    public List<Archivo> getArchivos() {
+        return archivos;
     }
 
-    public void setArchivo_carga(List<Archivo> archivo_carga) {
-        this.archivo_carga = archivo_carga;
+    public void setArchivos(List<Archivo> archivos) {
+        this.archivos = archivos;
     }
-
 
     public List<Evento> getEvento() {
         return evento;

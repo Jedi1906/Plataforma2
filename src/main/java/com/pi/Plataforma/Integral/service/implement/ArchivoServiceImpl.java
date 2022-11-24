@@ -3,11 +3,11 @@ package com.pi.Plataforma.Integral.service.implement;
 
 import com.pi.Plataforma.Integral.dao.IArchivoDao;
 import com.pi.Plataforma.Integral.models.Archivo;
+import com.pi.Plataforma.Integral.models.Ussurioooo;
 import com.pi.Plataforma.Integral.service.IArchivoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.lang.Long;
 import java.util.List;
 import javax.transaction.Transactional;
 @Service
@@ -50,6 +50,11 @@ public class ArchivoServiceImpl implements IArchivoService {
     @Override
     public List<Archivo> getAll() {
         return archivoDao.findAll();
+    }
+
+    @Override
+    public List<Archivo> getUssurioooo(Long id_usuario) {
+        return archivoDao.getUssurioooo(id_usuario);
     }
 }
 

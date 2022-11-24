@@ -1,6 +1,7 @@
 package com.pi.Plataforma.Integral.controller;
 
 import com.pi.Plataforma.Integral.models.Archivo;
+import com.pi.Plataforma.Integral.models.Ussurioooo;
 import com.pi.Plataforma.Integral.service.IArchivoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,10 +18,18 @@ public class ArchivoController {
     @Autowired
     private IArchivoService archivoService;
 
+    public ArchivoController(IArchivoService archivoService){this.archivoService=archivoService;}
+
     @PostMapping("/nuevo")
     public ResponseEntity<?> nuevo(@RequestBody Archivo archivo){
         archivoService.save(archivo);
         return new ResponseEntity<>(true, HttpStatus.OK);
+    }
+
+    @PostMapping("/getUssurioooo/{ussurioooo}")
+    public ResponseEntity<?> getUssurioooo(@PathVariable(name = "ussurioooo") Long id_usuario){
+        List<Archivo> response = archivoService.getUssurioooo(id_usuario);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @GetMapping("/getArchivos")

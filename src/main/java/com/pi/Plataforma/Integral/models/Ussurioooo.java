@@ -3,7 +3,6 @@ package com.pi.Plataforma.Integral.models;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.pi.Plataforma.Integral.models.*;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;

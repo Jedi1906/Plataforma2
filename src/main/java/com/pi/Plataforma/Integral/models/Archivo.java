@@ -1,5 +1,7 @@
 package com.pi.Plataforma.Integral.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -16,7 +18,7 @@ public class Archivo implements Serializable{
         @Column(name = "ruta", length = 100, nullable = false)
         private String ruta;
 
-    @ManyToOne()
+    @ManyToOne
     @JoinColumn (name = "id_usuario")
     private Ussurioooo ussurioooo;
 

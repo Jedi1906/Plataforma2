@@ -1,6 +1,8 @@
 package com.pi.Plataforma.Integral.service;
 
 import com.pi.Plataforma.Integral.models.Archivo;
+import com.pi.Plataforma.Integral.models.Ussurioooo;
+
 
 import java.util.List;
 
@@ -12,6 +14,9 @@ public interface IArchivoService {
     List<Archivo> get();
 
     List<Archivo> getAll();
+
+
+    List<Archivo> getUssurioooo(Long id_usuario);
 
 
 }

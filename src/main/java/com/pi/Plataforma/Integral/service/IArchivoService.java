@@ -11,9 +11,10 @@ public interface IArchivoService {
     Archivo update(Archivo archivo);
     public void delete(Long id);
 
-    List<Archivo> get();
 
+    List<Archivo> get();
     List<Archivo> getAll();
+
 
 
     List<Archivo> getUssurioooo(Long id_usuario);

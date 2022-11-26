@@ -9,5 +9,9 @@ public interface IMunicipioService {
     Municipio update(Municipio municipio);
     public  void delete(Long id);
 
+
+    List<Municipio> get();
     List<Municipio> getAll();
+
+    List<Municipio> getEstado( Long id_estado);
 }

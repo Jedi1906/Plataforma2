@@ -1,9 +1,6 @@
 package com.pi.Plataforma.Integral.controller;
 
-import com.pi.Plataforma.Integral.models.Actividad;
-import com.pi.Plataforma.Integral.models.Asistencia;
-import com.pi.Plataforma.Integral.models.Colonia;
-import com.pi.Plataforma.Integral.models.Ussurioooo;
+import com.pi.Plataforma.Integral.models.*;
 import com.pi.Plataforma.Integral.service.IColoniaService;
 import com.pi.Plataforma.Integral.service.IUssuriooooService;
 import com.pi.Plataforma.Integral.service.implement.ColoniaServicelmpl;
@@ -23,7 +20,9 @@ public class ColoniaController {
     @Autowired
     private IColoniaService coloniaService;
 
-    @PostMapping("/save")
+    public ColoniaController(IColoniaService coloniaService){this.coloniaService=coloniaService;}
+
+    @PostMapping("/nuevo")
     public ResponseEntity<?> nuevo(@RequestBody Colonia colonia){
         coloniaService.save(colonia);
         return new ResponseEntity<>(true, HttpStatus.OK);
@@ -32,6 +31,18 @@ public class ColoniaController {
     @GetMapping("/getColonia")
     public ResponseEntity<?> TraerColonia(){
         List<Colonia> colonias = coloniaService.getAll();
+        return new ResponseEntity<>(colonias,HttpStatus.OK);
+    }
+
+    @PostMapping("/getMunicipio/{municipio}")
+    public ResponseEntity<?> getMunicipio(@PathVariable(name = "municipio") Long id_municipio){
+        List<Colonia> response = coloniaService.getMunicipio(id_municipio);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @GetMapping("/getColonias")
+    public ResponseEntity<?> TraerColoniass(){
+        List<Colonia>  colonias= coloniaService.get();
         return new ResponseEntity<>(colonias,HttpStatus.OK);
     }
 

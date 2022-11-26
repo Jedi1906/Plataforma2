@@ -27,8 +27,8 @@ public class Donacion implements Serializable{
     @Column ( name = "status", nullable = false)
     private boolean status;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_usuario", updatable = false)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "id_usuario")
     @JsonIgnoreProperties({"hibernataLazyIntializer", "handler"})
     private Ussurioooo ussurioooo;
 

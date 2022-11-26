@@ -15,5 +15,9 @@ public interface IDonanteService {
     public void delete(Long id);
 
 
+    List<Donante> get();
     List<Donante> getAll();
+
+    List<Donante> getUssurioooo(Long id_usuario);
+    List<Donante> getEstado(Long id_estado);
 }

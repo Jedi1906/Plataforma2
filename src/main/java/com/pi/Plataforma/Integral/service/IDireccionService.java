@@ -14,6 +14,12 @@ public interface IDireccionService {
     public void delete(Long id);
 
 
+    List<Direccion> get();
     List<Direccion> getAll();
+
+
+    List<Direccion> getColonia(Long id_colonia);
+    List<Direccion> getMunicipio(Long id_municipio);
+    List<Direccion> getEstado(Long id_estado);
 
 }

@@ -24,18 +24,18 @@ public class Direccion implements Serializable{
     @Column(name = "cp", length = 100, nullable = false)
     private String cp;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn (name = "id_colonia", updatable = false)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @JoinColumn (name = "id_colonia")
     @JsonIgnoreProperties({"hibernataLazyIntializer", "handler"})
     private Colonia colonia;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn (name = "id_municipio", updatable = false)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @JoinColumn (name = "id_municipio")
     @JsonIgnoreProperties({"hibernataLazyIntializer", "handler"})
     private Municipio municipio;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn (name = "id_estado", updatable = false)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @JoinColumn (name = "id_estado")
     @JsonIgnoreProperties({"hibernataLazyIntializer", "handler"})
     private Estado estado;
 

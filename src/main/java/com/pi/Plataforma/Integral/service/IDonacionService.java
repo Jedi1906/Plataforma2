@@ -10,8 +10,12 @@ public interface IDonacionService {
     Donacion update(Donacion donacion);
     public void delete(Long id);
 
+
+    List<Donacion> get();
     List<Donacion> getAll();
 
+
+    List<Donacion> getUssurioooo(Long id_usuario);
 
 
 }

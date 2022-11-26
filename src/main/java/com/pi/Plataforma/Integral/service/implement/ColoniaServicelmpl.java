@@ -22,6 +22,9 @@ public class ColoniaServicelmpl implements IColoniaService {
     @Autowired
     private IColoniaDao coloniaDao;
 
+    @Autowired
+    private IColoniaDao iColoniaDao;
+
     public ColoniaServicelmpl(){}
 
     @Override
@@ -32,9 +35,14 @@ public class ColoniaServicelmpl implements IColoniaService {
         colonia1.setCp(colonia.getCp());
         colonia1.setCiudad(colonia.getCp());
         colonia1.setAsentamiento(colonia.getAsentamiento());
-        coloniaDao.updateAllRelations(
-                colonia.getId(),colonia.getMunicipio().getId()
-        );
+        colonia1 = coloniaDao.save(colonia1);
+        try {
+            coloniaDao.updateAllRelations(
+                    colonia1.getId(), colonia.getMunicipio().getId()
+            );
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
         return coloniaDao.getById(colonia1.getId());
     }
 
@@ -50,7 +58,18 @@ public class ColoniaServicelmpl implements IColoniaService {
     }
 
     @Override
+    public List<Colonia> get() {
+        System.out.println(coloniaDao.findAll());
+        return coloniaDao.findAll();
+    }
+
+    @Override
     public List<Colonia> getAll() {
         return null;
+    }
+
+    @Override
+    public List<Colonia> getMunicipio(Long id_municipio) {
+        return coloniaDao.getMunicipio(id_municipio);
     }
 }

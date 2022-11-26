@@ -17,8 +17,8 @@ public class Municipio implements Serializable{
     @Column (name = "nombre_municipio", length = 100,nullable = false)
     private String nombre_municipio;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn (name = "id_estado", updatable = false)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @JoinColumn (name = "id_estado")
     @JsonIgnoreProperties({"hibernataLazyIntializer", "handler"})
     private Estado estado;
 

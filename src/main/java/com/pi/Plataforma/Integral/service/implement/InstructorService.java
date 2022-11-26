@@ -36,7 +36,12 @@ public class InstructorService implements IIntructorService {
         instructor1.setFechaNac(instructor.getFechaNac());
         instructor1.setArea(instructor.getArea());
         instructor1.setEspecialidad(instructor.getEspecialidad());
-        instructorDao.updateAllRelations(instructor.getId(),instructor.getEstado().getId(),instructor.getUssurioooo().getId());
+        instructor1 = instructorDao.save(instructor1);
+        try {
+            instructorDao.updateAllRelations(instructor1.getId(), instructor.getEstado().getId(), instructor.getUssurioooo().getId());
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
         return instructorDao.getById(instructor1.getId());
     }
 
@@ -52,7 +57,23 @@ public class InstructorService implements IIntructorService {
     }
 
     @Override
+    public List<Instructor> get() {
+        System.out.println(instructorDao.findAll());
+        return instructorDao.findAll();
+    }
+
+    @Override
     public List<Instructor> getAll() {
         return instructorDao.findAll();
+    }
+
+    @Override
+    public List<Instructor> getEstado(Long id_estado) {
+        return instructorDao.getEstado(id_estado);
+    }
+
+    @Override
+    public List<Instructor> getUssurioooo(Long id_usuario) {
+        return instructorDao.getUssurioooo(id_usuario);
     }
 }

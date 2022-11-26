@@ -1,10 +1,7 @@
 package com.pi.Plataforma.Integral.controller;
 
 
-import com.pi.Plataforma.Integral.models.Actividad;
-import com.pi.Plataforma.Integral.models.Asistencia;
-import com.pi.Plataforma.Integral.models.Municipio;
-import com.pi.Plataforma.Integral.models.Ussurioooo;
+import com.pi.Plataforma.Integral.models.*;
 import com.pi.Plataforma.Integral.service.IMunicipioService;
 import com.pi.Plataforma.Integral.service.IUssuriooooService;
 import com.pi.Plataforma.Integral.service.implement.MunicipioServicelmpl;
@@ -24,16 +21,30 @@ public class MunicipioController {
     @Autowired
     private IMunicipioService municipioService;
 
-    @PostMapping("/save")
+    public  MunicipioController(IMunicipioService municipioService){this.municipioService=municipioService;}
+
+    @PostMapping("/nuevo")
     public ResponseEntity<?> nuevo(@RequestBody Municipio municipio){
         municipioService.save(municipio);
         return new ResponseEntity<>(true, HttpStatus.OK);
+    }
+
+    @PostMapping("/getEstado/estado")
+    public ResponseEntity<?> getEstado(@PathVariable(name = "estado") Long id_estado){
+        List<Municipio> response = municipioService.getEstado(id_estado);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
 
     @GetMapping("/getMunicipio")
     public ResponseEntity<?> TraerMunicipio(){
         List<Municipio> municipios = municipioService.getAll();
+        return new ResponseEntity<>(municipios,HttpStatus.OK);
+    }
+
+    @GetMapping("/getMunicipios")
+    public ResponseEntity<?> TraerMunicipios(){
+        List<Municipio>  municipios= municipioService.get();
         return new ResponseEntity<>(municipios,HttpStatus.OK);
     }
 

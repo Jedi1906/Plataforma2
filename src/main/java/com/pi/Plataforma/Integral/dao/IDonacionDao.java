@@ -1,5 +1,6 @@
 package com.pi.Plataforma.Integral.dao;
 
+import com.pi.Plataforma.Integral.models.Archivo;
 import com.pi.Plataforma.Integral.models.Donacion;
 
 import com.pi.Plataforma.Integral.models.Ussurioooo;
@@ -11,9 +12,13 @@ import java.util.List;
 
 public interface IDonacionDao extends JpaRepository<Donacion, Long> {
 
-    @Modifying
-    @Query("update Donacion p set p.ussurioooo.id = ?2 where p.id = ?1")
+    @Modifying(clearAutomatically = true)
+    @Query(value = "update Donacion p set p.ussurioooo.id = ?2 where p.id = ?1")
     void updateAllRelations(Long id, Long id_usuario);
+
+    @Modifying
+    @Query("select u from Donacion u where u.ussurioooo.id=?1")
+    List<Donacion> getUssurioooo(Long id_usuario);
 
     /* @Modifying
     @Query("select p from Donacion p order by p.id desc")

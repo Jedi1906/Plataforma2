@@ -36,8 +36,12 @@ public class DonanteServiceImpl implements IDonanteService {
         donante1.setTelefono_contacto(donante.getTelefono_contacto());
         donante1.setProviene_de(donante.getProviene_de());
         donante1.setObservaciones(donante.getObservaciones());
-        donanteDao.updateAllRelations(donante.getId(),donante.getUssurioooo().getId(),donante.getEstado().getId());
-
+        donante1 = donanteDao.save(donante1);
+        try {
+            donanteDao.updateAllRelations(donante1.getId(), donante1.getUssurioooo().getId(), donante1.getEstado().getId());
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
         return donanteDao.getById(donante1.getId());
     }
 
@@ -53,7 +57,23 @@ public class DonanteServiceImpl implements IDonanteService {
     }
 
     @Override
+    public List<Donante> get() {
+        System.out.println(donanteDao.findAll());
+        return donanteDao.findAll();
+    }
+
+    @Override
     public List<Donante> getAll() {
         return donanteDao.findAll();
+    }
+
+    @Override
+    public List<Donante> getUssurioooo(Long id_usuario) {
+        return donanteDao.getUssurioooo(id_usuario);
+    }
+
+    @Override
+    public List<Donante> getEstado(Long id_estado) {
+        return donanteDao.getEstado(id_estado);
     }
 }

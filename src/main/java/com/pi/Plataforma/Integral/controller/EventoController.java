@@ -1,9 +1,6 @@
 package com.pi.Plataforma.Integral.controller;
 
-import com.pi.Plataforma.Integral.models.Actividad;
-import com.pi.Plataforma.Integral.models.Asistencia;
-import com.pi.Plataforma.Integral.models.Evento;
-import com.pi.Plataforma.Integral.models.Ussurioooo;
+import com.pi.Plataforma.Integral.models.*;
 import com.pi.Plataforma.Integral.service.IEventoService;
 import com.pi.Plataforma.Integral.service.IUssuriooooService;
 import com.pi.Plataforma.Integral.service.implement.EventoServiceImpl;
@@ -23,11 +20,27 @@ public class EventoController {
     @Autowired
     private IEventoService eventoService;
 
-    @PostMapping("/save")
+    public EventoController(IEventoService eventoService){this.eventoService=eventoService;}
+
+    @PostMapping("/nuevo")
     public ResponseEntity<?> nuevo(@RequestBody Evento evento){
         eventoService.save(evento);
         return new ResponseEntity<>(true, HttpStatus.OK);
     }
+
+    @GetMapping("/getEventos")
+    public ResponseEntity<?> TraerEventos(){
+        List<Evento>  eventos= eventoService.get();
+        return new ResponseEntity<>(eventos,HttpStatus.OK);
+    }
+
+    @PostMapping("/getUssurioooo/{ussurioooo}")
+    public ResponseEntity<?> getUssurioooo(@PathVariable(name = "ussurioooo") Long id_usuario){
+        List<Evento> response = eventoService.getUssurio(id_usuario);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+
 
     @GetMapping("/getEvento")
     public ResponseEntity<?> TraerEvento(){

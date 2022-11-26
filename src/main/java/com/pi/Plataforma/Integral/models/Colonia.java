@@ -23,8 +23,8 @@ public class Colonia implements Serializable{
     @Column (name = "asentamiento", length = 100, nullable = false)
     private String asentamiento;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn (name = "id_municipio", updatable = false)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @JoinColumn (name = "id_municipio")
     @JsonIgnoreProperties({"hibernataLazyIntializer", "handler"})
     private Municipio municipio;
 

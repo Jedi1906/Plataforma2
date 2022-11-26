@@ -1,9 +1,6 @@
 package com.pi.Plataforma.Integral.controller;
 
-import com.pi.Plataforma.Integral.models.Actividad;
-import com.pi.Plataforma.Integral.models.Asistencia;
-import com.pi.Plataforma.Integral.models.Donacion;
-import com.pi.Plataforma.Integral.models.Ussurioooo;
+import com.pi.Plataforma.Integral.models.*;
 import com.pi.Plataforma.Integral.service.IDonacionService;
 import com.pi.Plataforma.Integral.service.IUssuriooooService;
 import com.pi.Plataforma.Integral.service.implement.DonacionServiceImpl;
@@ -23,11 +20,26 @@ public class DonacionController {
     @Autowired
     private IDonacionService donacionService;
 
-    @PostMapping("/save")
+    public DonacionController(IDonacionService donacionService){this.donacionService=donacionService;}
+
+    @PostMapping("/nuevo")
     public ResponseEntity<?> nuevo(@RequestBody Donacion donacion){
         donacionService.save(donacion);
         return new ResponseEntity<>(true, HttpStatus.OK);
     }
+
+    @PostMapping("/getUssurioooo/{ussurioooo}")
+    public ResponseEntity<?> getUssurioooo(@PathVariable(name = "ussurioooo") Long id_usuario){
+        List<Donacion> response = donacionService.getUssurioooo(id_usuario);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @GetMapping("/getDonaciones")
+    public ResponseEntity<?> TraerDonaciones(){
+        List<Donacion>  donacions= donacionService.get();
+        return new ResponseEntity<>(donacions,HttpStatus.OK);
+    }
+
 
     @GetMapping("/getDonacion")
     public ResponseEntity<?> TraerDonacion(){

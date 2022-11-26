@@ -14,8 +14,12 @@ public interface IAsistenciaService {
     public void delete(Long id);
 
 
+    List<Asistencia> get();
     List<Asistencia> getAll();
 
+    List<Asistencia> getActividad(Long id_actividad);
+    List<Asistencia> getUssurioooo(Long id_usuario);
+    List<Asistencia> getInstructor(Long id_instructor);
 
 
 

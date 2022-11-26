@@ -57,4 +57,5 @@ public class Archivo implements Serializable{
     public void setUssurioooo(Ussurioooo ussurioooo) {
         this.ussurioooo = ussurioooo;
     }
+
 }

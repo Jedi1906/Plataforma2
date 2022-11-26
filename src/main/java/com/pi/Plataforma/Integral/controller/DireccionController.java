@@ -1,9 +1,6 @@
 package com.pi.Plataforma.Integral.controller;
 
-import com.pi.Plataforma.Integral.models.Actividad;
-import com.pi.Plataforma.Integral.models.Asistencia;
-import com.pi.Plataforma.Integral.models.Direccion;
-import com.pi.Plataforma.Integral.models.Ussurioooo;
+import com.pi.Plataforma.Integral.models.*;
 import com.pi.Plataforma.Integral.service.IDireccionService;
 import com.pi.Plataforma.Integral.service.IUssuriooooService;
 import com.pi.Plataforma.Integral.service.implement.DireccionServiceImpl;
@@ -23,10 +20,19 @@ public class DireccionController {
    @Autowired
    private IDireccionService direccionService;
 
-    @PostMapping("/save")
+   public DireccionController(IDireccionService direccionService){this.direccionService=direccionService;}
+
+    @PostMapping("/nuevo")
     public ResponseEntity<?> nuevo(@RequestBody Direccion direccion){
         direccionService.save(direccion);
         return new ResponseEntity<>(true, HttpStatus.OK);
+    }
+
+
+    @GetMapping("/getDirecciones")
+    public ResponseEntity<?> TraerDirecciones(){
+        List<Direccion>  direccions= direccionService.get();
+        return new ResponseEntity<>(direccions,HttpStatus.OK);
     }
 
     @GetMapping("/getDirreccion")

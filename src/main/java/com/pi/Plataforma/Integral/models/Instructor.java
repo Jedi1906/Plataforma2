@@ -20,21 +20,21 @@ public class Instructor implements Serializable{
     @Column (name = "telefonoPart", length = 100, nullable = false)
     private String telefonoPart;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn (name = "id_estado", updatable = false)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @JoinColumn (name = "id_estado")
     @JsonIgnoreProperties({"hibernataLazyIntializer", "handler"})
     private Estado estado;
 
     @Column (name = "fechaNac", unique = true, length = 100, nullable = false)
     private Date fechaNac;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn (name = "id_usuario", updatable = false)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @JoinColumn (name = "id_usuario")
     @JsonIgnoreProperties({"hibernataLazyIntializer", "handler"})
     private Ussurioooo ussurioooo;
 
     @OneToMany(mappedBy = "instructor",
-            cascade = CascadeType.ALL)
+             cascade = CascadeType.MERGE)
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private List<Asistencia> asistencia;
 

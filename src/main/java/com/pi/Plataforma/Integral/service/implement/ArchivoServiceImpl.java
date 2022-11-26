@@ -26,10 +26,11 @@ public class ArchivoServiceImpl implements IArchivoService {
         Archivo archivo1=new Archivo();
         archivo1.setNombre_archivo(archivo.getNombre_archivo());
         archivo1.setRuta(archivo.getRuta());
+        //archivo1.setUssurioooo(null);
         archivo1 = archivoDao.save(archivo1);
         try{
             archivoDao.updateAllRelations(
-                    archivo1.getId(),archivo.getUssurioooo().getId()
+                    archivo.getId(),archivo.getUssurioooo().getId()
             );
         }catch (Exception e){
             System.out.println(e.getMessage());

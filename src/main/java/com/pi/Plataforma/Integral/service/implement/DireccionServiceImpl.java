@@ -26,10 +26,15 @@ public class DireccionServiceImpl implements IDireccionService {
         direccion1.setNumero_ext(direccion.getNumero_ext());
         direccion1.setNumero_int(direccion.getNumero_int());
         direccion1.setCp(direccion.getCp());
-        direccionDao.updateAllRelations(
-                direccion.getId(),direccion.getColonia().getId(),
-                direccion.getMunicipio().getId(),direccion.getEstado().getId()
-        );
+        direccion1 = direccionDao.save(direccion1);
+        try {
+            direccionDao.updateAllRelations(
+                    direccion1.getId(), direccion.getColonia().getId(),
+                    direccion.getMunicipio().getId(), direccion.getEstado().getId()
+            );
+        }catch ( Exception e){
+            System.out.println(e.getMessage());
+        }
         return direccionDao.getById(direccion1.getId());
     }
 
@@ -45,7 +50,28 @@ public class DireccionServiceImpl implements IDireccionService {
     }
 
     @Override
+    public List<Direccion> get() {
+        System.out.println(direccionDao.findAll());
+        return direccionDao.findAll();
+    }
+
+    @Override
     public List<Direccion> getAll() {
         return direccionDao.findAll();
+    }
+
+    @Override
+    public List<Direccion> getColonia(Long id_colonia) {
+        return direccionDao.getColonia(id_colonia);
+    }
+
+    @Override
+    public List<Direccion> getMunicipio(Long id_municipio) {
+        return direccionDao.getMunicipio(id_municipio);
+    }
+
+    @Override
+    public List<Direccion> getEstado(Long id_estado) {
+        return direccionDao.getEstado(id_estado);
     }
 }

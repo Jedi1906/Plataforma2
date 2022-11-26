@@ -27,8 +27,8 @@ public class Evento implements Serializable{
     @Column (name = "instrucciones", length = 100, nullable = false)
     private String instrucciones;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn (name = "id_usuario", updatable = false)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @JoinColumn (name = "id_usuario")
     @JsonIgnoreProperties({"hibernataLazyIntializer", "handler"})
     private Ussurioooo ussurioooo;
 

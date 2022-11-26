@@ -12,7 +12,11 @@ public interface IEventoService {
     Evento update(Evento evento);
     public void delete(Long id);
 
+
+    List<Evento> get();
     List<Evento> getAll();
+
+    List<Evento> getUssurio(Long id_usuario);
 
 
 

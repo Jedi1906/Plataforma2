@@ -26,9 +26,13 @@ public class DonacionServiceImpl implements IDonacionService {
     @Autowired
     private IDonacionDao donacionDao;
 
+    @Autowired
+    private IUssuriooooDao ussuriooooDao;
+
     public DonacionServiceImpl(){}
 
     @Override
+    @Transactional
     public Donacion save(Donacion donacion) {
         Donacion donacion1=new Donacion();
         donacion1.setTipo_donacion(donacion.getTipo_donacion());
@@ -37,7 +41,13 @@ public class DonacionServiceImpl implements IDonacionService {
         donacion1.setFecha_act(donacion.getFecha_act());
         donacion1.setValidado(donacion.isValidado());
         donacion1.setStatus(donacion.isStatus());
-        donacionDao.updateAllRelations(donacion.getId(),donacion.getUssurioooo().getId());
+        donacion1 = donacionDao.save(donacion1);
+        try {
+            donacionDao.updateAllRelations(
+                    donacion1.getId(), donacion.getUssurioooo().getId());
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
         return donacionDao.getById(donacion1.getId());
     }
 
@@ -53,7 +63,18 @@ public class DonacionServiceImpl implements IDonacionService {
     }
 
     @Override
+    public List<Donacion> get() {
+        System.out.println(donacionDao.findAll());
+        return donacionDao.findAll();
+    }
+
+    @Override
     public List<Donacion> getAll() {
         return donacionDao.findAll();
+    }
+
+    @Override
+    public List<Donacion> getUssurioooo(Long id_usuario) {
+        return donacionDao.getUssurioooo(id_usuario);
     }
 }

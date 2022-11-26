@@ -21,18 +21,18 @@ public class Asistencia implements Serializable{
     @Column(name = "validacion", length = 250)
     private String validacion;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn (name = "id_actividad", updatable = false)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @JoinColumn (name = "id_actividad")
     @JsonIgnoreProperties({"hibernataLazyIntializer", "handler"})
     private Actividad actividad;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn (name = "id_usuario", updatable = false)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @JoinColumn (name = "id_usuario")
     @JsonIgnoreProperties({"hibernataLazyIntializer", "handler"})
     private Ussurioooo ussurioooo;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn (name = "id_instructor", updatable = false)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @JoinColumn (name = "id_instructor")
     @JsonIgnoreProperties({"hibernataLazyIntializer", "handler"})
     private Instructor instructor;
 

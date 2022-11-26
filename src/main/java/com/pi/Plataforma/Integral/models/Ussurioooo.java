@@ -45,7 +45,7 @@ public class Ussurioooo implements Serializable{
     private List<Asistencia> asistencia;
 
     @OneToMany(mappedBy = "ussurioooo",
-            cascade = CascadeType.ALL)
+            cascade= {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
     private List<Archivo> archivos;
 
 
@@ -205,7 +205,6 @@ public class Ussurioooo implements Serializable{
     public void setInstructor(Instructor instructor) {
         this.instructor = instructor;
     }
-
 
 
 }

@@ -10,8 +10,13 @@ public interface IIntructorService {
     Instructor save(Instructor instructor);
     Instructor update(Instructor instructor);
     public void delete(Long id);
+
+    List<Instructor> get();
     List<Instructor> getAll();
 
+
+    List<Instructor> getEstado(Long id_estado);
+    List<Instructor> getUssurioooo(Long id_usuario);
 
 
 }

@@ -25,7 +25,9 @@ public class DonanteController {
     @Autowired
     private  IDonanteService donanteService;
 
-    @PostMapping("/save")
+    public DonanteController(IDonanteService donanteService){this.donanteService=donanteService;}
+
+    @PostMapping("/nuevo")
     public ResponseEntity<?> nuevo(@RequestBody Donante donante){
         donanteService.save(donante);
         return new ResponseEntity<>(true, HttpStatus.OK);

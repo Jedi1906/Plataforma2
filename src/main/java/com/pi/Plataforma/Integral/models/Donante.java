@@ -24,13 +24,13 @@ public class Donante implements Serializable{
     @Column(name = "observaciones", nullable = false)
     private String observaciones;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinColumn(name = "id_usuario", updatable = false)
     @JsonIgnoreProperties({"hibernataLazyIntializer", "handler"})
     private Ussurioooo ussurioooo;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn (name = "id_estado", updatable = false)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @JoinColumn (name = "id_estado")
     @JsonIgnoreProperties({"hibernataLazyIntializer", "handler"})
     private Estado estado;
 

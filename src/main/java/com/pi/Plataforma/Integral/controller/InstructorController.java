@@ -25,7 +25,7 @@ public class InstructorController {
     @Autowired
     private IIntructorService intructorService;
 
-    @PostMapping("/save")
+    @PostMapping("/nuevo")
     public ResponseEntity<?> nuevo(@RequestBody Instructor instructor){
         intructorService.save(instructor);
         return new ResponseEntity<>(true, HttpStatus.OK);

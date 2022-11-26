@@ -1,5 +1,6 @@
 package com.pi.Plataforma.Integral.service.implement;
 
+import com.pi.Plataforma.Integral.controller.MunicipioController;
 import com.pi.Plataforma.Integral.dao.IColoniaDao;
 import com.pi.Plataforma.Integral.dao.IMunicipioDao;
 import com.pi.Plataforma.Integral.models.Estado;
@@ -23,15 +24,21 @@ public class MunicipioServicelmpl implements IMunicipioService {
     @Autowired
     private IMunicipioDao municipioDao;
 
-
     public MunicipioServicelmpl(){}
     @Override
+    @Transactional
     public Municipio save(Municipio municipio) {
         Municipio municipio1=new Municipio();
         municipio1.setNombre_municipio(municipio.getNombre_municipio());
+        municipio1 = municipioDao.save(municipio1);
+        try{
         municipioDao.updateAllRelations(
-                municipio.getId(),municipio.getEstado().getId()
+                municipio1.getId(),municipio.getEstado().getId()
         );
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+
+        }
         return municipioDao.getById(municipio1.getId());
     }
 
@@ -47,7 +54,18 @@ public class MunicipioServicelmpl implements IMunicipioService {
     }
 
     @Override
+    public List<Municipio> get() {
+        System.out.println(municipioDao.findAll());
+        return municipioDao.findAll();
+    }
+
+    @Override
     public List<Municipio> getAll() {
         return municipioDao.findAll();
+    }
+
+    @Override
+    public List<Municipio> getEstado(Long id_estado) {
+        return municipioDao.getEstado(id_estado);
     }
 }

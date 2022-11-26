@@ -13,7 +13,9 @@ public interface IColoniaService {
     Colonia update(Colonia colonia);
     public void delete(Long id);
 
-
+    List<Colonia> get();
     List<Colonia> getAll();
 
+
+    List<Colonia> getMunicipio(Long id_municipio);
 }

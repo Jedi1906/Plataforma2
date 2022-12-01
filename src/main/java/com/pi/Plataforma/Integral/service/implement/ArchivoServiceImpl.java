@@ -32,9 +32,10 @@ public class ArchivoServiceImpl implements IArchivoService {
         Ussurioooo ussuriooooSave = iUsuario.save(archivo.getUssurioooo());
 
         Archivo archivoSave = archivoDao.save(archivo);
+        archivoSave.setNombre_archivo(archivo.getNombre_archivo());
+        archivoSave.setRuta(archivo.getRuta());
 
-
-        archivoDao.updateAllRelations(archivoSave.getId(), ussuriooooSave.getId());
+        archivoDao.updateAllRelations(archivoSave.getId(), archivo.getUssurioooo().getId());
 
         return archivoDao.getById(archivoSave.getId());
 

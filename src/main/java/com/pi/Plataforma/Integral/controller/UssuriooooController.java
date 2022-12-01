@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/ussurioooo")
+@RequestMapping("/user")
 @CrossOrigin(origins = "*")
 public class UssuriooooController {
     @Autowired
@@ -22,7 +22,7 @@ public class UssuriooooController {
         return new ResponseEntity<>(true,HttpStatus.OK);
     }
 
-    @GetMapping("/getUssurioooos")
+    @GetMapping("/getUser")
     public ResponseEntity<?> TraerUsuarios(){
         List<Ussurioooo> ussurioooos = ussuriooooService.get();
         return new ResponseEntity<>(ussurioooos,HttpStatus.OK);

@@ -40,10 +40,10 @@ public class DireccionController {
         List<Direccion> direccions = direccionService.getAll();
         return new ResponseEntity<>(direccions,HttpStatus.OK);
     }
-    @PostMapping("/delete")
-    public ResponseEntity<?> nuevo(@RequestBody Long id){
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Long> delete(@PathVariable Long id){
         direccionService.delete(id);
-        return new ResponseEntity<>(true, HttpStatus.OK);
+        return new ResponseEntity<>(id, HttpStatus.OK);
     }
 
 }

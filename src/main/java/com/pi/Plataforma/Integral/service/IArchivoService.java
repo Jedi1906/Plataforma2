@@ -17,7 +17,7 @@ public interface IArchivoService {
 
 
 
-    List<Archivo> getUssurioooo(Long id_usuario);
+    List<Ussurioooo> getUssurioooo();
 
 
 }

@@ -7,14 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-
+@Transactional
 @Service
 public class UssuriooooImpl implements IUssuriooooService {
     @Autowired
@@ -35,7 +29,6 @@ public class UssuriooooImpl implements IUssuriooooService {
 
     @Override
     public void delete(Long id) {
-
         ussuriooooDao.deleteUsuario(id);
     }
 
@@ -57,7 +50,7 @@ public class UssuriooooImpl implements IUssuriooooService {
 
     @Override
     public Ussurioooo findByEmail(String correo) {
-        return null;
+        return ussuriooooDao.findByCorreo(correo);
     }
 
 

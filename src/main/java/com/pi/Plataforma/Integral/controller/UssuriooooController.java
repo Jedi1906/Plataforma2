@@ -34,12 +34,11 @@ public class UssuriooooController {
         return new ResponseEntity<>(ussurioooos,HttpStatus.OK);
     }
 
-    @PostMapping("/delete")
-    public ResponseEntity<?> nuevo(@RequestBody Long id){
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Long> delete(@PathVariable Long id){
         ussuriooooService.delete(id);
-        return new ResponseEntity<>(true, HttpStatus.OK);
+        return new ResponseEntity<>(id, HttpStatus.OK);
     }
-
 
 }
 

@@ -16,7 +16,9 @@ import java.util.List;
 public class ArchivoController {
 
     @Autowired
-    private IArchivoService archivoService;
+    private final IArchivoService archivoService;
+
+
 
     public ArchivoController(IArchivoService archivoService){this.archivoService=archivoService;}
 
@@ -26,9 +28,9 @@ public class ArchivoController {
         return new ResponseEntity<>(true, HttpStatus.OK);
     }
 
-    @PostMapping("/getUssurioooo/{ussurioooo}")
-    public ResponseEntity<?> getUssurioooo(@PathVariable(name = "ussurioooo") Long id_usuario){
-        List<Archivo> response = archivoService.getUssurioooo(id_usuario);
+    @PostMapping("/getUssurioooo")
+    public ResponseEntity<?> getUssurioooo(){
+        List<Ussurioooo> response = archivoService.getUssurioooo();
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
@@ -44,10 +46,10 @@ public class ArchivoController {
         return new ResponseEntity<>(archivos,HttpStatus.OK);
     }
 
-    @PostMapping("/delete")
-    public ResponseEntity<?> nuevo(@RequestBody Long id){
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Long> delete(@PathVariable Long id){
         archivoService.delete(id);
-        return new ResponseEntity<>(true, HttpStatus.OK);
+        return new ResponseEntity<>(id, HttpStatus.OK);
     }
 
 

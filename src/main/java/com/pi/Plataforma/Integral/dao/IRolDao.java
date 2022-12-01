@@ -1,13 +1,13 @@
 package com.pi.Plataforma.Integral.dao;
 
-import com.pi.Plataforma.Integral.models.Asistencia;
 import com.pi.Plataforma.Integral.models.Rol;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-
+@Transactional
 public interface IRolDao extends JpaRepository<Rol,Long> {
 
 
@@ -20,9 +20,9 @@ public interface IRolDao extends JpaRepository<Rol,Long> {
     @Query("select p from Rol p order by p.id desc")
     List<Rol> getAllPage(Long id);*/
 
+
+
     @Modifying
     @Query("delete from Rol p where p.id = ?1")
     void deleteRol(Long id);
-
-
 }

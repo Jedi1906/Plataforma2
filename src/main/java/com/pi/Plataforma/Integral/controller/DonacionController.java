@@ -20,6 +20,9 @@ public class DonacionController {
     @Autowired
     private IDonacionService donacionService;
 
+
+
+
     public DonacionController(IDonacionService donacionService){this.donacionService=donacionService;}
 
     @PostMapping("/nuevo")
@@ -34,11 +37,6 @@ public class DonacionController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    @GetMapping("/getDonaciones")
-    public ResponseEntity<?> TraerDonaciones(){
-        List<Donacion>  donacions= donacionService.get();
-        return new ResponseEntity<>(donacions,HttpStatus.OK);
-    }
 
 
     @GetMapping("/getDonacion")
@@ -47,9 +45,17 @@ public class DonacionController {
         return new ResponseEntity<>(donacions,HttpStatus.OK);
     }
 
-    @PostMapping("/delete")
-    public ResponseEntity<?> nuevo(@RequestBody Long id){
+
+
+    @GetMapping("/getDonaciones")
+    public ResponseEntity<?> TraerDonaciones(){
+        List<Donacion>  donacions= donacionService.get();
+        return new ResponseEntity<>(donacions,HttpStatus.OK);
+    }
+
+        @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Long> delete(@PathVariable Long id){
         donacionService.delete(id);
-        return new ResponseEntity<>(true, HttpStatus.OK);
+        return new ResponseEntity<>(id, HttpStatus.OK);
     }
 }

@@ -1,9 +1,11 @@
 package com.pi.Plataforma.Integral.service;
 
+import com.itextpdf.text.DocumentException;
 import com.pi.Plataforma.Integral.models.Actividad;
 import com.pi.Plataforma.Integral.models.Ussurioooo;
 
 
+import java.io.IOException;
 import java.util.List;
 
 public interface IActividadService {
@@ -14,5 +16,7 @@ public interface IActividadService {
     List<Actividad> get();
 
     List<Actividad> getAll();
+
+
 
 }

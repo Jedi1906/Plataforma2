@@ -1,12 +1,19 @@
 package com.pi.Plataforma.Integral.controller;
 
+import com.itextpdf.text.DocumentException;
 import com.pi.Plataforma.Integral.models.Actividad;
 import com.pi.Plataforma.Integral.service.IActividadService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
 import java.util.List;
 
 @RestController
@@ -39,3 +46,17 @@ public class ActividadController {
         return new ResponseEntity<>(true, HttpStatus.OK);
     }
 }
+    /*@GetMapping("/generatePdf/{id_actividad}")
+    public ResponseEntity<?> generatePdf(@PathVariable(name = "id_actividad") Long id_actividad) throws IOException, DocumentException {
+        String path = actividadService.generatePdf(id_actividad);
+        Resource resource = null;
+        InputStreamResource inputStreamResource = null;
+
+
+        HttpHeaders cabecera = new HttpHeaders();
+        cabecera.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"");
+
+        return ResponseEntity.ok().headers(cabecera).contentLength(resource.contentLength())
+                .contentType(MediaType.APPLICATION_OCTET_STREAM).body(inputStreamResource);
+    }
+}*/

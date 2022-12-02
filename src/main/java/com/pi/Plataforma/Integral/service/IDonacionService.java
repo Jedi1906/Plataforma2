@@ -1,8 +1,10 @@
 package com.pi.Plataforma.Integral.service;
 
+import com.itextpdf.text.DocumentException;
 import com.pi.Plataforma.Integral.models.Donacion;
 import com.pi.Plataforma.Integral.models.Ussurioooo;
 
+import java.io.IOException;
 import java.util.List;
 
 public interface IDonacionService {
@@ -16,6 +18,8 @@ public interface IDonacionService {
 
 
     List<Donacion> getUssurioooo(Long id_usuario);
+
+    String generatePdf(Long id_donacion) throws IOException, DocumentException;
 
 
 }

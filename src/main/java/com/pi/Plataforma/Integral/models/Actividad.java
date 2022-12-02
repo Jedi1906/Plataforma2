@@ -24,7 +24,6 @@ public class Actividad implements Serializable {
 
     @OneToMany(mappedBy = "actividad",
             cascade = CascadeType.ALL)
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private List<Asistencia> asistencia;
 
     public Actividad() {

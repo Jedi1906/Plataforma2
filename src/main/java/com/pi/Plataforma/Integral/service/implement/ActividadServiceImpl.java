@@ -8,14 +8,16 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-@Transactional
+
 @Service
 public class ActividadServiceImpl implements IActividadService {
 
-    @Autowired
-    private IActividadDao actividadDao;
 
-    public ActividadServiceImpl(){};
+    private final IActividadDao actividadDao;
+
+    public ActividadServiceImpl(IActividadDao actividadDao) {
+        this.actividadDao = actividadDao;
+    }
 
     @Override
     @Transactional
@@ -27,7 +29,7 @@ public class ActividadServiceImpl implements IActividadService {
     public Actividad update(Actividad actividad) {
         return null;
     }
-
+    @Transactional
     @Override
     public void delete(Long id) {
 

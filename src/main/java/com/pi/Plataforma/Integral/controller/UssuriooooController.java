@@ -13,8 +13,13 @@ import java.util.List;
 @RequestMapping("/user")
 @CrossOrigin(origins = "*")
 public class UssuriooooController {
+
     @Autowired
-    private IUssuriooooService ussuriooooService;
+    private final IUssuriooooService ussuriooooService;
+
+    public UssuriooooController(IUssuriooooService ussuriooooService) {
+        this.ussuriooooService = ussuriooooService;
+    }
 
     @PostMapping("/nuevo")
     public ResponseEntity<?> nuevo( @RequestBody Ussurioooo ussurioooo){
@@ -22,10 +27,12 @@ public class UssuriooooController {
         return new ResponseEntity<>(true,HttpStatus.OK);
     }
 
+
+
     @GetMapping("/getUser")
     public ResponseEntity<?> TraerUsuarios(){
-        List<Ussurioooo> ussurioooos = ussuriooooService.get();
-        return new ResponseEntity<>(ussurioooos,HttpStatus.OK);
+        List<Ussurioooo> ussuriooos = ussuriooooService.get();
+        return new ResponseEntity<>(ussuriooos,HttpStatus.OK);
     }
 
     @GetMapping("/getUssurioooo")

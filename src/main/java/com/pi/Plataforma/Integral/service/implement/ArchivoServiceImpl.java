@@ -18,7 +18,6 @@ public class ArchivoServiceImpl implements IArchivoService {
     @Autowired
     private final IArchivoDao archivoDao;
 
-    @Autowired
     private final IUssuriooooDao iUsuario;
 
     public ArchivoServiceImpl(IArchivoDao archivoDao, IUssuriooooDao iUsuario) {
@@ -29,16 +28,16 @@ public class ArchivoServiceImpl implements IArchivoService {
     @Override
     @Transactional
     public Archivo save(Archivo archivo) {
-        Ussurioooo ussuriooooSave = iUsuario.save(archivo.getUssurioooo());
-
-        Archivo archivoSave = archivoDao.save(archivo);
-        archivoSave.setNombre_archivo(archivo.getNombre_archivo());
-        archivoSave.setRuta(archivo.getRuta());
-
-        archivoDao.updateAllRelations(archivoSave.getId(), archivo.getUssurioooo().getId());
-
-        return archivoDao.getById(archivoSave.getId());
-
+        Archivo archivo1 = new Archivo();
+        archivo1.setNombre_archivo(archivo.getNombre_archivo());
+        archivo1.setRuta(archivo.getRuta());
+        archivo1 = archivoDao.save(archivo1);
+        try {
+            archivoDao.updateAllRelations(archivo1.getId(),archivo1.getUssurioooo().getId());
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        return archivoDao.getById(archivo1.getId());
     }
 
     @Override

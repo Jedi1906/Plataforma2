@@ -23,17 +23,14 @@ public class Asistencia implements Serializable{
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinColumn (name = "id_actividad")
-    @JsonIgnoreProperties({"hibernataLazyIntializer", "handler"})
     private Actividad actividad;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinColumn (name = "id_usuario")
-    @JsonIgnoreProperties({"hibernataLazyIntializer", "handler"})
     private Ussurioooo ussurioooo;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinColumn (name = "id_instructor")
-    @JsonIgnoreProperties({"hibernataLazyIntializer", "handler"})
     private Instructor instructor;
 
     public Asistencia() {

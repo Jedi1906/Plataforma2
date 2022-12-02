@@ -18,8 +18,8 @@ public interface IDonacionDao extends JpaRepository<Donacion, Long> {
     void updateAllRelations(Long id, Long id_usuario);
 
     @Modifying
-    @Query("select u from Donacion u where u.ussurioooo.id=?1")
-    List<Donacion> getUssurioooo(Long id_usuario);
+    @Query("select u from Ussurioooo u")
+    List<Ussurioooo> getUssurioooo();
 
     /* @Modifying
     @Query("select p from Donacion p order by p.id desc")

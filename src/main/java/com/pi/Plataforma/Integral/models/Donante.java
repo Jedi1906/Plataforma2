@@ -18,7 +18,7 @@ public class Donante implements Serializable{
     @Column(name = "validacion", nullable = false)
     private String validacion;
     @Column(name = "telefono_contacto")
-    private Number telefono_contacto;
+    private String telefono_contacto;
     @Column(name = "proviene_de", nullable = false)
     private String proviene_de;
     @Column(name = "observaciones", nullable = false)
@@ -61,11 +61,11 @@ public class Donante implements Serializable{
         this.validacion = validacion;
     }
 
-    public Number getTelefono_contacto() {
+    public String getTelefono_contacto() {
         return telefono_contacto;
     }
 
-    public void setTelefono_contacto(Number telefono_contacto) {
+    public void setTelefono_contacto(String telefono_contacto) {
         this.telefono_contacto = telefono_contacto;
     }
 

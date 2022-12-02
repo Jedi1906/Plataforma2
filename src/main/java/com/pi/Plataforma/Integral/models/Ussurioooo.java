@@ -45,7 +45,8 @@ public class Ussurioooo implements Serializable{
     private List<Asistencia> asistencia;
 
     @OneToMany(mappedBy = "ussurioooo",
-            cascade= {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+            cascade = CascadeType.ALL)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private List<Archivo> archivos;
 
 
@@ -68,28 +69,6 @@ public class Ussurioooo implements Serializable{
 
 
     public Ussurioooo() {
-    }
-
-
-
-    public Ussurioooo(Long id, String nombre, String apellido, Date fecha_creaci, String correo, String contraseña, Integer status, String telefono, Date fecha_actual, String genero, Set<Rol> rol, List<Asistencia> asistencia, List<Archivo> archivos, List<Evento> evento, List<Donacion> donacion, Donante donante, Instructor instructor) {
-        this.id = id;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.fecha_creaci = fecha_creaci;
-        this.correo = correo;
-        this.contraseña = contraseña;
-        this.status = status;
-        this.telefono = telefono;
-        this.fecha_actual = fecha_actual;
-        this.genero = genero;
-        this.rol = rol;
-        this.asistencia = asistencia;
-        this.archivos = archivos;
-        this.evento = evento;
-        this.donacion = donacion;
-        this.donante = donante;
-        this.instructor = instructor;
     }
 
     public Long getId() {
@@ -228,26 +207,4 @@ public class Ussurioooo implements Serializable{
         this.instructor = instructor;
     }
 
-    @Override
-    public String toString() {
-        return "Ussurioooo{" +
-                "id=" + id +
-                ", nombre='" + nombre + '\'' +
-                ", apellido='" + apellido + '\'' +
-                ", fecha_creaci=" + fecha_creaci +
-                ", correo='" + correo + '\'' +
-                ", contraseña='" + contraseña + '\'' +
-                ", status=" + status +
-                ", telefono='" + telefono + '\'' +
-                ", fecha_actual=" + fecha_actual +
-                ", genero='" + genero + '\'' +
-                ", rol=" + rol +
-                ", asistencia=" + asistencia +
-                ", archivos=" + archivos +
-                ", evento=" + evento +
-                ", donacion=" + donacion +
-                ", donante=" + donante +
-                ", instructor=" + instructor +
-                '}';
-    }
 }

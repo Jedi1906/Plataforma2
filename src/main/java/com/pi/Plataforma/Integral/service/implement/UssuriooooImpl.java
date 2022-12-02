@@ -8,13 +8,16 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-@Transactional
+
 @Service
 public class UssuriooooImpl implements IUssuriooooService {
     @Autowired
-    private IUssuriooooDao ussuriooooDao;
+    private final IUssuriooooDao ussuriooooDao;
 
-    public UssuriooooImpl(){}
+    public UssuriooooImpl(IUssuriooooDao ussuriooooDao) {
+        this.ussuriooooDao = ussuriooooDao;
+    }
+
 
     @Override
     @Transactional
@@ -26,7 +29,7 @@ public class UssuriooooImpl implements IUssuriooooService {
     public Ussurioooo update(Ussurioooo ussurioooo) {
         return null;
     }
-
+    @Transactional
     @Override
     public void delete(Long id) {
         ussuriooooDao.deleteUsuario(id);

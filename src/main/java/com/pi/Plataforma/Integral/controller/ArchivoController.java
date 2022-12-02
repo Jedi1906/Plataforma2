@@ -28,11 +28,6 @@ public class ArchivoController {
         return new ResponseEntity<>(true, HttpStatus.OK);
     }
 
-    @PostMapping("/getUssurioooo")
-    public ResponseEntity<?> getUssurioooo(){
-        List<Ussurioooo> response = archivoService.getUssurioooo();
-        return new ResponseEntity<>(response, HttpStatus.OK);
-    }
 
     @GetMapping("/getArchivos")
     public ResponseEntity<?> TraerArchivos(){

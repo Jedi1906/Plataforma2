@@ -1,6 +1,7 @@
 package com.pi.Plataforma.Integral.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -8,6 +9,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "donacion")
+@EntityListeners(AuditingEntityListener.class)
 public class Donacion implements Serializable{
 
     @Id
@@ -31,6 +33,7 @@ public class Donacion implements Serializable{
     @JoinColumn(name = "id_usuario")
     @JsonIgnoreProperties({"hibernataLazyIntializer", "handler"})
     private Ussurioooo ussurioooo;
+
 
     public Donacion() {
     }

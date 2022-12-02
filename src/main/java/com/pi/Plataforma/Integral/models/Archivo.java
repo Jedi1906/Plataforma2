@@ -8,7 +8,6 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "archivo")
-@EntityListeners(AuditingEntityListener.class)
 public class Archivo implements Serializable{
 
         @Id
@@ -28,12 +27,6 @@ public class Archivo implements Serializable{
     public Archivo() {
     }
 
-    public Archivo(Long id, String nombre_archivo, String ruta, Ussurioooo ussurioooo) {
-        this.id = id;
-        this.nombre_archivo = nombre_archivo;
-        this.ruta = ruta;
-        this.ussurioooo = ussurioooo;
-    }
 
     public Long getId() {
         return id;
@@ -67,13 +60,4 @@ public class Archivo implements Serializable{
         this.ussurioooo = ussurioooo;
     }
 
-    @Override
-    public String toString() {
-        return "Archivo{" +
-                "id=" + id +
-                ", nombre_archivo='" + nombre_archivo + '\'' +
-                ", ruta='" + ruta + '\'' +
-                ", ussurioooo=" + ussurioooo +
-                '}';
-    }
 }

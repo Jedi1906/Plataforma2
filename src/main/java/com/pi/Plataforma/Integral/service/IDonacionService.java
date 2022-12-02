@@ -19,6 +19,8 @@ public interface IDonacionService {
 
     List<Ussurioooo> getUssurioooo();
 
+    String generatePdf(Long id_donacion) throws IOException, DocumentException;
+
 
     String generatePdf(Long id) throws IOException, DocumentException;
 

@@ -4,9 +4,12 @@ import com.pi.Plataforma.Integral.models.Municipio;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+
+@Transactional
 public interface IMunicipioDao extends JpaRepository<Municipio, Long> {
 
     @Modifying(clearAutomatically = true)
@@ -19,7 +22,9 @@ public interface IMunicipioDao extends JpaRepository<Municipio, Long> {
 
     /* @Modifying
     @Query("select p from Municipio p order by p.id desc")
-    List<Municipio> getAllPage(Long id);*/
+    List<Municipio> getAllPage(Long id);
+
+*/
 
     @Modifying
     @Query("delete from Municipio p where p.id = ?1")

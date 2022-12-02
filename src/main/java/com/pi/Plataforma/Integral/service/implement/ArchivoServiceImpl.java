@@ -8,34 +8,37 @@ import com.pi.Plataforma.Integral.models.Ussurioooo;
 import com.pi.Plataforma.Integral.service.IArchivoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import javax.transaction.Transactional;
+@Transactional
 @Service
 public class ArchivoServiceImpl implements IArchivoService {
 
     @Autowired
-    private  IArchivoDao archivoDao;
+    private final IArchivoDao archivoDao;
 
     @Autowired
-    private IUssuriooooDao iUsuario;
-    public ArchivoServiceImpl(){}
+    private final IUssuriooooDao iUsuario;
+
+    public ArchivoServiceImpl(IArchivoDao archivoDao, IUssuriooooDao iUsuario) {
+        this.archivoDao = archivoDao;
+        this.iUsuario = iUsuario;
+    }
+
     @Override
     @Transactional
     public Archivo save(Archivo archivo) {
-        Archivo archivo1=new Archivo();
-        archivo1.setNombre_archivo(archivo.getNombre_archivo());
-        archivo1.setRuta(archivo.getRuta());
-        //archivo1.setUssurioooo(null);
-        archivo1 = archivoDao.save(archivo1);
-        try{
-            archivoDao.updateAllRelations(
-                    archivo.getId(),archivo.getUssurioooo().getId()
-            );
-        }catch (Exception e){
-            System.out.println(e.getMessage());
-        }
-        return archivoDao.getById(archivo1.getId());
+        Ussurioooo ussuriooooSave = iUsuario.save(archivo.getUssurioooo());
+
+        Archivo archivoSave = archivoDao.save(archivo);
+        archivoSave.setNombre_archivo(archivo.getNombre_archivo());
+        archivoSave.setRuta(archivo.getRuta());
+
+        archivoDao.updateAllRelations(archivoSave.getId(), archivo.getUssurioooo().getId());
+
+        return archivoDao.getById(archivoSave.getId());
+
     }
 
     @Override
@@ -61,9 +64,10 @@ public class ArchivoServiceImpl implements IArchivoService {
     }
 
     @Override
-    public List<Archivo> getUssurioooo(Long id_usuario) {
-        return archivoDao.getUssurioooo(id_usuario);
+    public List<Ussurioooo> getUssurioooo() {
+        return archivoDao.getUssurioooo();
     }
+
 }
 
 

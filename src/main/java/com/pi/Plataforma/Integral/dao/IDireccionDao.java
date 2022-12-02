@@ -5,9 +5,10 @@ import com.pi.Plataforma.Integral.models.Direccion;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-
+@Transactional
 public interface IDireccionDao extends JpaRepository<Direccion,Long> {
     @Modifying(clearAutomatically = true)
     @Query(value = "update Direccion p set p.colonia.id = ?2, p.municipio.id = ?3,p.estado.id = ?4 where p.id = ?1", nativeQuery = true)

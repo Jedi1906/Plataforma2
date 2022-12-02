@@ -37,10 +37,10 @@ public class InstructorController {
         return new ResponseEntity<>(instructors,HttpStatus.OK);
     }
 
-    @PostMapping("/delete")
-    public ResponseEntity<?> nuevo(@RequestBody Long id){
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Long> delete(@PathVariable Long id){
         intructorService.delete(id);
-        return new ResponseEntity<>(true, HttpStatus.OK);
+        return new ResponseEntity<>(id, HttpStatus.OK);
     }
 
 

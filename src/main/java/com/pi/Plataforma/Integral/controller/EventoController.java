@@ -47,10 +47,10 @@ public class EventoController {
         List<Evento> eventos = eventoService.getAll();
         return new ResponseEntity<>(eventos,HttpStatus.OK);
     }
-    @PostMapping("/delete")
-    public ResponseEntity<?> nuevo(@RequestBody Long id){
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Long> delete(@PathVariable Long id){
         eventoService.delete(id);
-        return new ResponseEntity<>(true, HttpStatus.OK);
+        return new ResponseEntity<>(id, HttpStatus.OK);
     }
 
 

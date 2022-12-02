@@ -40,10 +40,10 @@ public class ActividadController {
         return new ResponseEntity<>(actividads,HttpStatus.OK);
     }
 
-    @PostMapping("/delete")
-    public ResponseEntity<?> nuevo(@RequestBody Long id){
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Long> delete(@PathVariable Long id){
         actividadService.delete(id);
-        return new ResponseEntity<>(true, HttpStatus.OK);
+        return new ResponseEntity<>(id, HttpStatus.OK);
     }
 }
     /*@GetMapping("/generatePdf/{id_actividad}")

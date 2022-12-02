@@ -7,9 +7,10 @@ import com.pi.Plataforma.Integral.models.Ussurioooo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-
+@Transactional
 public interface IDonanteDao extends JpaRepository<Donante, Long> {
 
     @Modifying(clearAutomatically = true)

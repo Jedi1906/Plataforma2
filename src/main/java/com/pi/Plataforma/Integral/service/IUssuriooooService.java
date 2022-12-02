@@ -9,8 +9,9 @@ public interface IUssuriooooService {
     Ussurioooo save(Ussurioooo ussurioooo);
     Ussurioooo update(Ussurioooo ussurioooo);
     public  void delete( Long id);
-    List<Ussurioooo> get();
 
+
+    List<Ussurioooo> get();
     List<Ussurioooo> getAll();
 
 

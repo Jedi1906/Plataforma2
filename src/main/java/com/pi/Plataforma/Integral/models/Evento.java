@@ -29,10 +29,19 @@ public class Evento implements Serializable{
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinColumn (name = "id_usuario")
-    @JsonIgnoreProperties({"hibernataLazyIntializer", "handler"})
     private Ussurioooo ussurioooo;
 
     public Evento() {
+    }
+
+    public Evento(Long id, String descripcion, Date fecha, String ubicacion, String url, String imagen, String instrucciones) {
+        this.id = id;
+        this.descripcion = descripcion;
+        this.fecha = fecha;
+        this.ubicacion = ubicacion;
+        this.url = url;
+        this.imagen = imagen;
+        this.instrucciones = instrucciones;
     }
 
     public Long getId() {

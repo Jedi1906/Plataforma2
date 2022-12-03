@@ -10,14 +10,18 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-@Transactional
+
 @Service
 public class EstadoServiceImpl implements IEstadoService {
-    @Autowired
-    private IEstadoDao estadoDao;
 
-    public EstadoServiceImpl(){}
+    private final IEstadoDao estadoDao;
 
+    public EstadoServiceImpl(IEstadoDao estadoDao) {
+        this.estadoDao = estadoDao;
+    }
+
+
+    @Transactional
     @Override
     public Estado save(Estado estado) { return estadoDao.save(estado);
     }
@@ -27,10 +31,10 @@ public class EstadoServiceImpl implements IEstadoService {
         return null;
     }
 
+    @Transactional
     @Override
     public void delete(Long id) {
         estadoDao.deleteEstado(id);
-
     }
 
     @Override

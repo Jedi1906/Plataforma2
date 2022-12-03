@@ -25,7 +25,7 @@ public class Instructor implements Serializable{
     @JsonIgnoreProperties({"hibernataLazyIntializer", "handler"})
     private Estado estado;
 
-    @Column (name = "fechaNac", unique = true, length = 100, nullable = false)
+    @Column (name = "fechaNac", length = 100, nullable = false)
     private Date fechaNac;
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
@@ -44,6 +44,15 @@ public class Instructor implements Serializable{
     private String especialidad;
 
     public Instructor() {
+    }
+
+    public Instructor(Long id, String correoSec, String telefonoPart, Date fechaNac, String area, String especialidad) {
+        this.id = id;
+        this.correoSec = correoSec;
+        this.telefonoPart = telefonoPart;
+        this.fechaNac = fechaNac;
+        this.area = area;
+        this.especialidad = especialidad;
     }
 
     public Long getId() {

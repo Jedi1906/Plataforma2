@@ -87,7 +87,7 @@ public class DonacionServiceImpl implements IDonacionService {
 
     @Override
     public String generatePdf(Long id) throws IOException, DocumentException {
-        String pathFile = Constants.DIRECTORIO_UPLOAD + "/pdf/estado_cuenta_" + id + ".pdf";
+        String pathFile = Constants.DIRECTORIO_UPLOAD + "/pdf/donaciones_por_" + id + ".pdf";
         File temp = new File(pathFile);
         temp.getParentFile().mkdir();
         createPdf(temp.getPath(), id);

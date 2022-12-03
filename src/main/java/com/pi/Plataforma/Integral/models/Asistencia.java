@@ -37,6 +37,7 @@ public class Asistencia implements Serializable{
     }
 
 
+
     public Long getId() {
         return id;
     }

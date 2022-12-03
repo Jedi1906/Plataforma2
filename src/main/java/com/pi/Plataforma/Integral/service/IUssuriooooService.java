@@ -18,13 +18,7 @@ public interface IUssuriooooService {
     Ussurioooo getById(Long idussurioooo);
 
 
-    /*Métodos para brokers
-    void saveBroker(Ussurioooo ussurioooo);
-    List<Ussurioooo> getBrokers();
-    void updateBroker(Ussurioooo ussurioooo);
-    Fin métodos*/
 
-    /*Metodos de contraseña*/
 
     Ussurioooo findByEmail(String correo);
 

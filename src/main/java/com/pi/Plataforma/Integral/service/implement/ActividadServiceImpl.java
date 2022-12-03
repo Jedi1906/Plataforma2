@@ -29,16 +29,15 @@ public class ActividadServiceImpl implements IActividadService {
     public Actividad update(Actividad actividad) {
         return null;
     }
+
     @Transactional
     @Override
     public void delete(Long id) {
-
         actividadDao.deleteActividad(id);
     }
 
     @Override
     public List<Actividad> get() {
-
         System.out.println(actividadDao.findAll());
         return actividadDao.findAll();
     }

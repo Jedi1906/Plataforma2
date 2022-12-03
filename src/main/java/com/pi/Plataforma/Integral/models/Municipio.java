@@ -33,6 +33,10 @@ public class Municipio implements Serializable{
     public Municipio() {
     }
 
+    public Municipio(Long id, String nombre_municipio) {
+        this.id = id;
+        this.nombre_municipio = nombre_municipio;
+    }
 
     public Long getId() {
         return id;

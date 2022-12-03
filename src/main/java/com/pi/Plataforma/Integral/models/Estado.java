@@ -34,7 +34,6 @@ public class Estado implements Serializable{
 
     @OneToMany(mappedBy = "estado",
             cascade = CascadeType.ALL)
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private List<Direccion> direccion;
 
 
@@ -42,6 +41,8 @@ public class Estado implements Serializable{
 
     public Estado() {
     }
+
+
 
     public Long getId() {
         return id;

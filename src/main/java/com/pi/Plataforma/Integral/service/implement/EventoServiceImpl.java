@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
+
 @Transactional
 @Service
 public class EventoServiceImpl implements IEventoService {
@@ -41,7 +43,21 @@ public class EventoServiceImpl implements IEventoService {
 
     @Override
     public Evento update(Evento evento) {
-        return null;
+        Evento evento1=new Evento();
+        evento1.setDescripcion(evento.getDescripcion());
+        evento1.setFecha(evento.getFecha());
+        evento1.setUbicacion(evento.getUbicacion());
+        evento1.setUrl(evento.getUrl());
+        evento1.setImagen(evento.getImagen());
+        evento1.setInstrucciones(evento.getInstrucciones());
+        evento1 =  eventoDao.save(evento1);
+        try{
+            eventoDao.updateAllRelations(
+                    evento1.getId(),evento.getUssurioooo().getId());
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        return eventoDao.getById(evento1.getId());
     }
 
     @Override
@@ -64,5 +80,14 @@ public class EventoServiceImpl implements IEventoService {
     @Override
     public List<Evento> getUssurio(Long id_usuario) {
         return eventoDao.getUssurio(id_usuario);
+    }
+
+    @Override
+    public Evento getById(Long id) {
+        return eventoDao.findAllById(id);    }
+
+    @Override
+    public Optional<Evento> findById(Long id) {
+        return eventoDao.findById(id);
     }
 }

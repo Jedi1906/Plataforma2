@@ -21,4 +21,6 @@ public interface IActividadDao extends JpaRepository<Actividad,Long> {
     @Modifying
     @Query("delete from Actividad p where p.id = ?1")
     void deleteActividad(Long id);
+
+    Actividad findAllById(Long id);
 }

@@ -5,6 +5,7 @@ import com.pi.Plataforma.Integral.models.Evento;
 import com.pi.Plataforma.Integral.models.Ussurioooo;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface IEventoService {
 
@@ -18,6 +19,10 @@ public interface IEventoService {
 
     List<Evento> getUssurio(Long id_usuario);
 
+
+    Evento getById(Long id);
+
+    Optional<Evento> findById(Long id);
 
 
 }

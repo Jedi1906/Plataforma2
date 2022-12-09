@@ -1,8 +1,7 @@
 package com.pi.Plataforma.Integral.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -19,14 +18,13 @@ public class Archivo implements Serializable{
         @Column(name = "ruta", length = 100)
         private String ruta;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
-    @JoinColumn (name = "id_usuario", updatable = false)
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn (name = "id_usuario")
+    @JsonProperty(access = Access.WRITE_ONLY)
     private Ussurioooo ussurioooo;
 
     public Archivo() {
     }
-
 
     public Long getId() {
         return id;
@@ -59,5 +57,4 @@ public class Archivo implements Serializable{
     public void setUssurioooo(Ussurioooo ussurioooo) {
         this.ussurioooo = ussurioooo;
     }
-
 }

@@ -56,6 +56,17 @@ public class DonacionController {
     }
 
 
+    @GetMapping("/{id}")
+    public Object getDonacion(@PathVariable long id){
+        return donacionService.findById(id);
+    }
+
+    @PostMapping
+    public void actualizarDonacion(@RequestBody Donacion donacion){
+        donacionService.update(donacion);
+
+    }
+
 
     @GetMapping("/getDonaciones")
     public ResponseEntity<?> TraerDonaciones(){

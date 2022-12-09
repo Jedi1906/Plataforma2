@@ -2,7 +2,6 @@ package com.pi.Plataforma.Integral.service;
 
 import com.pi.Plataforma.Integral.models.*;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 public interface IIntructorService {

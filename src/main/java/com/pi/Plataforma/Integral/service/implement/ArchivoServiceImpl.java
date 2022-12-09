@@ -33,7 +33,7 @@ public class ArchivoServiceImpl implements IArchivoService {
         archivo1.setRuta(archivo.getRuta());
         archivo1 = archivoDao.save(archivo1);
         try {
-            archivoDao.updateAllRelations(archivo1.getId(),archivo1.getUssurioooo().getId());
+            archivoDao.updateAllRelations(archivo1.getId(),archivo.getUssurioooo().getId());
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
@@ -60,6 +60,11 @@ public class ArchivoServiceImpl implements IArchivoService {
     @Override
     public List<Archivo> getAll() {
         return archivoDao.findAll();
+    }
+
+    @Override
+    public List<Ussurioooo> getUsuario() {
+        return  archivoDao.getUssurioooo();
     }
 
     @Override

@@ -25,4 +25,6 @@ public interface IEventoDao extends JpaRepository<Evento,Long> {
     @Modifying
     @Query("delete from Evento p where p.id = ?1")
     void deleteEvento(Long id);
+
+    Evento findAllById(Long id);
 }

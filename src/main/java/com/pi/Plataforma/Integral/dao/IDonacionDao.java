@@ -30,5 +30,5 @@ public interface IDonacionDao extends JpaRepository<Donacion, Long> {
     void deleteDonacion(Long id);
 
 
-
+    Donacion findAllById(Long id);
 }

@@ -6,6 +6,7 @@ import com.pi.Plataforma.Integral.models.Ussurioooo;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 public interface IDonacionService {
     Donacion save(Donacion donacion);
@@ -15,6 +16,10 @@ public interface IDonacionService {
 
     List<Donacion> get();
     List<Donacion> getAll();
+
+
+    Donacion getById(Long id);
+    Optional<Donacion> findById(Long id);
 
 
     List<Ussurioooo> getUssurioooo();

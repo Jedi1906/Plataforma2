@@ -7,6 +7,7 @@ import com.pi.Plataforma.Integral.models.Ussurioooo;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 public interface IActividadService {
 
@@ -18,5 +19,8 @@ public interface IActividadService {
     List<Actividad> getAll();
 
 
+    Actividad getById(Long id);
+
+    Optional<Actividad> findById(Long id);
 
 }

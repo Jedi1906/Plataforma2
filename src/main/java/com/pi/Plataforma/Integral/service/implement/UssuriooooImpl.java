@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UssuriooooImpl implements IUssuriooooService {
@@ -26,8 +27,9 @@ public class UssuriooooImpl implements IUssuriooooService {
     }
 
     @Override
+    @Transactional
     public Ussurioooo update(Ussurioooo ussurioooo) {
-        return null;
+        return ussuriooooDao.save(ussurioooo);
     }
     @Transactional
     @Override
@@ -48,12 +50,17 @@ public class UssuriooooImpl implements IUssuriooooService {
 
     @Override
     public Ussurioooo getById(Long idussurioooo) {
-        return null;
+        return ussuriooooDao.findAllById(idussurioooo);
     }
 
     @Override
     public Ussurioooo findByEmail(String correo) {
         return ussuriooooDao.findByCorreo(correo);
+    }
+
+    @Override
+    public Optional<Ussurioooo> findById(Long id) {
+        return ussuriooooDao.findById(id);
     }
 
 

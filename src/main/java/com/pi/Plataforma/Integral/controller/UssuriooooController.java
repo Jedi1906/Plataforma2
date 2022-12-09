@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -27,6 +29,34 @@ public class UssuriooooController {
         return new ResponseEntity<>(true,HttpStatus.OK);
     }
 
+    @GetMapping("/{id}")
+    public Object getUser(@PathVariable long id){
+        return ussuriooooService.findById(id);
+    }
+
+    @PostMapping
+    public void actualizarUsuario(@RequestBody Ussurioooo ussurioooo){
+        ussuriooooService.update(ussurioooo);
+
+    }
+
+    /*@PostMapping("update/{id}")
+    public Ussurioooo update(@RequestBody Ussurioooo ussurioooo, @PathVariable("id") long id) {
+        ussurioooo.setId(id);
+        return ussuriooooService.update(ussurioooo);
+    }*/
+
+
+
+    /*
+    @PostMapping("/nuevo")
+    public ResponseEntity<?> nuevo( @RequestBody Ussurioooo ussurioooo){
+        ussuriooooService.save(ussurioooo);
+        return new ResponseEntity<>(true,HttpStatus.OK);
+    }
+
+     */
+
 
 
     @GetMapping("/getUser")
@@ -46,6 +76,9 @@ public class UssuriooooController {
         ussuriooooService.delete(id);
         return new ResponseEntity<>(id, HttpStatus.OK);
     }
+
+
+
 
 
 }

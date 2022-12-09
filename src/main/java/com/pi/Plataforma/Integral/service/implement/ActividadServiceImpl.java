@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ActividadServiceImpl implements IActividadService {
@@ -27,7 +28,7 @@ public class ActividadServiceImpl implements IActividadService {
 
     @Override
     public Actividad update(Actividad actividad) {
-        return null;
+        return actividadDao.save(actividad);
     }
 
     @Transactional
@@ -45,5 +46,15 @@ public class ActividadServiceImpl implements IActividadService {
     @Override
     public List<Actividad> getAll() {
         return actividadDao.findAll();
+    }
+
+    @Override
+    public Actividad getById(Long id) {
+        return actividadDao.findAllById(id);
+    }
+
+    @Override
+    public Optional<Actividad> findById(Long id) {
+        return Optional.empty();
     }
 }

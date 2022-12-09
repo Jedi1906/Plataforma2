@@ -16,6 +16,8 @@ public interface IArchivoService {
     List<Archivo> getAll();
 
 
+    List<Ussurioooo> getUsuario();
+
 
     List<Ussurioooo> getUssurioooo();
 

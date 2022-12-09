@@ -17,6 +17,11 @@ public interface IUssuriooooDao extends JpaRepository<Ussurioooo, Long> {
     void updateAllRelations(Long id, String nombre, String apellido, Date fecha_creaci, String correo, String contraseña, String staus, String telefono, Date fecha_actual, String genero);
 
 
+    @Modifying
+    @Query("update Ussurioooo p set p.nombre = ?2, p.apellido = ?3, p.fecha_creaci = ?4, p.correo = ?5, p.contraseña = ?6, p.status = ?7, p.telefono = ?8, p.fecha_actual = ?9, p.genero = ?10 where p.id = ?1")
+    void update(Long id, String nombre, String apellido, Date fecha_creaci, String correo, String contraseña, String staus, String telefono, Date fecha_actual, String genero);
+
+
     Ussurioooo findByCorreo(String correo);
 
 
@@ -30,4 +35,5 @@ public interface IUssuriooooDao extends JpaRepository<Ussurioooo, Long> {
     void deleteUsuario(Long id);
 
 
+    Ussurioooo findAllById(Long idussurioooo);
 }

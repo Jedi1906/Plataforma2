@@ -2,7 +2,6 @@ package com.pi.Plataforma.Integral.models;
 
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -43,8 +42,7 @@ public class Ussurioooo implements Serializable{
     cascade = CascadeType.ALL)
     private List<Asistencia> asistencia;
 
-    @OneToMany(mappedBy = "ussurioooo",
-            cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "ussurioooo", cascade = CascadeType.ALL)
     private List<Archivo> archivos;
 
 
@@ -67,20 +65,6 @@ public class Ussurioooo implements Serializable{
 
 
     public Ussurioooo() {
-    }
-
-    public Ussurioooo(Long id, String nombre, String apellido, Date fecha_creaci, String correo, String contraseña, Integer status, String telefono, Date fecha_actual, String genero, Set<Rol> rol) {
-        this.id = id;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.fecha_creaci = fecha_creaci;
-        this.correo = correo;
-        this.contraseña = contraseña;
-        this.status = status;
-        this.telefono = telefono;
-        this.fecha_actual = fecha_actual;
-        this.genero = genero;
-        this.rol = rol;
     }
 
     public Long getId() {
@@ -185,6 +169,9 @@ public class Ussurioooo implements Serializable{
 
     public void setArchivos(List<Archivo> archivos) {
         this.archivos = archivos;
+        for(Archivo archivo : archivos){
+            archivo.setUssurioooo(this);
+        }
     }
 
     public List<Evento> getEvento() {

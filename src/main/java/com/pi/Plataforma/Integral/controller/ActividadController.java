@@ -1,6 +1,7 @@
 package com.pi.Plataforma.Integral.controller;
 
 import com.pi.Plataforma.Integral.models.Actividad;
+import com.pi.Plataforma.Integral.models.Ussurioooo;
 import com.pi.Plataforma.Integral.service.IActividadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -38,6 +39,19 @@ public class ActividadController {
         actividadService.delete(id);
         return new ResponseEntity<>(id, HttpStatus.OK);
     }
+
+
+    @GetMapping("/{id}")
+    public Object getActividad(@PathVariable long id){
+        return actividadService.findById(id);
+    }
+
+    @PostMapping
+    public void actualizarActividad(@RequestBody Actividad actividad){
+        actividadService.update(actividad);
+
+    }
+
 }
     /*@GetMapping("/generatePdf/{id_actividad}")
     public ResponseEntity<?> generatePdf(@PathVariable(name = "id_actividad") Long id_actividad) throws IOException, DocumentException {

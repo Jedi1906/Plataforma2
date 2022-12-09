@@ -55,5 +55,17 @@ public class EventoController {
 
 
 
+    @GetMapping("/{id}")
+    public Object getEvento(@PathVariable long id){
+        return eventoService.findById(id);
+    }
+
+    @PostMapping
+    public void actualizarEvento(@RequestBody Evento evento){
+        eventoService.update(evento);
+
+    }
+
+
 
 }

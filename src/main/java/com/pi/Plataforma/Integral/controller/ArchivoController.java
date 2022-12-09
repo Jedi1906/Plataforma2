@@ -35,6 +35,12 @@ public class ArchivoController {
         return new ResponseEntity<>(archivos,HttpStatus.OK);
     }
 
+    @GetMapping("/getUsuario")
+    public ResponseEntity<?> getUssurioooo(){
+        List<Ussurioooo> response = archivoService.getUssurioooo();
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
     @GetMapping("/getArchivo")
     public ResponseEntity<?> TraerArchivo(){
         List<Archivo>  archivos= archivoService.getAll();

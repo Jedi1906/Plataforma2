@@ -26,6 +26,8 @@ import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.Optional;
+
 @Transactional
 @Service
 public class DonacionServiceImpl implements IDonacionService {
@@ -60,7 +62,21 @@ public class DonacionServiceImpl implements IDonacionService {
 
     @Override
     public Donacion update(Donacion donacion) {
-        return null;
+        Donacion donacion1=new Donacion();
+        donacion1.setTipo_donacion(donacion.getTipo_donacion());
+        donacion1.setFecha_registro(donacion.getFecha_registro());
+        donacion1.setStock(donacion.getStock());
+        donacion1.setFecha_act(donacion.getFecha_act());
+        donacion1.setValidado(donacion.isValidado());
+        donacion1.setStatus(donacion.isStatus());
+        donacion1 = donacionDao.save(donacion1);
+        try {
+            donacionDao.updateAllRelations(
+                    donacion1.getId(), donacion.getUssurioooo().getId());
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        return donacionDao.getById(donacion1.getId());
     }
 
     @Override
@@ -78,6 +94,16 @@ public class DonacionServiceImpl implements IDonacionService {
     @Override
     public List<Donacion> getAll() {
         return donacionDao.findAll();
+    }
+
+    @Override
+    public Donacion getById(Long id) {
+        return donacionDao.findAllById(id);
+    }
+
+    @Override
+    public Optional<Donacion> findById(Long id) {
+        return donacionDao.findById(id);
     }
 
     @Override
